@@ -39,7 +39,7 @@ export default {
             currentView:"preview",
             visibleViews:new Set(),
             menuOptions:['preview','html','css','js'],
-            optionsReady:false,
+            optionsReady:false
         }
     },
     computed:{
@@ -84,9 +84,10 @@ export default {
                 text-transform: uppercase;
                 text-align: center;
                 padding: 20px min(40px, 5%);
-                margin: 20px 0;
+                margin: 20px min(10px, 1.25%);
                 cursor: pointer;
                 transition: color,background-color, 0.15s ease-in-out;
+                border-radius: 500px;
                 &:hover,
                 &:active,
                 &.active{
