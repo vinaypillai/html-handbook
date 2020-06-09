@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		body
+		{
+			background-color: #333;
+			margin: 0;
+			padding: 0;
+		}
+
+		.squareWrapper
+		{
+			position: absolute;
+			top: calc(50% - 50px);
+			left: calc(50% - 50px);
+			width: 100px;
+			height: 100px;
+			perspective: 1000px;
+		}
+
+		.floppingSquare
+		{
+			position:absolute;
+			left: calc(var(--leftVal) * 50px);
+			top: calc(var(--topVal) * 50px);
+			width: 50px;
+			height: 50px;
+			background-color: var(--color);
+			transition: transform 1s;
+			transform-style: preserve-3d;
+			background-color: #fff;
+		}
+
+		.floppingSquare:hover
+		{
+			transform: rotateX(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div class = "squareWrapper">
+		<div class = "floppingSquare" style = "--leftVal:0;--topVal:0"></div>
+		<div class = "floppingSquare" style = "--leftVal:1;--topVal:0"></div>
+		<div class = "floppingSquare" style = "--leftVal:0;--topVal:1"></div>
+		<div class = "floppingSquare" style = "--leftVal:1;--topVal:1"></div>
+	</div>
+</body>
+</html>
