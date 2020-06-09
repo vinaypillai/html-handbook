@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+
+	<style type="text/css">
+		body
+		{
+			background-color: #082c7d;
+			padding: 0;
+			margin: 0 0;
+		}
+
+		.spinnerContainer
+		{
+			width: 100vw;
+			height:100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.spinner--line-jump
+		{
+			position: relative;
+			width: 150px;
+			height: 50px;
+		}
+
+		.spinner--line-jump .dot
+		{
+			position: absolute;
+			left: calc(var(--count) * 50px);
+			top: 50%;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background-color: #fff;
+			margin: 0 auto;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+			animation-timing-function: ease-in-out;
+			animation-delay: calc(var(--count) * (1s / 2));
+			animation-name: spinner--line-jump-animation;
+			
+		}
+
+		@keyframes spinner--line-jump-animation
+		{
+			0%
+			{
+				top: 50%;
+			}
+
+			12.5%
+			{
+				top: 0px;
+			}
+
+			25%
+			{
+				top: 50%;
+			}
+
+		}
+
+	</style>
+</head>
+<body>
+	<div class = "spinnerContainer">
+		<div class = "spinner--line-jump">
+			<span class = "dot" style = "--count:0"></span>
+			<span class = "dot" style = "--count:1"></span>
+			<span class = "dot" style = "--count:2"></span>
+			<span class = "dot" style = "--count:3"></span>
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

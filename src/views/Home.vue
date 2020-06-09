@@ -76,7 +76,71 @@
 }' language="css"></code-block>
             </template>
         </component-presentation>
-        <component-presentation color="#082C7D"></component-presentation>
+        <component-presentation color="#082C7D">
+            <template v-slot:preview>
+                <div class = "spinner--line-jump">
+                    <span class = "dot" style = "--count:0"></span>
+                    <span class = "dot" style = "--count:1"></span>
+                    <span class = "dot" style = "--count:2"></span>
+                    <span class = "dot" style = "--count:3"></span>
+                </div>
+            </template>
+
+            <template v-slot:html>
+                <code-block language="markup" content = '<div class="spinner--line-jump">
+    <span class="dot" style="--count:0"></span>
+    <span class="dot" style="--count:1"></span>
+    <span class="dot" style="--count:2"></span>
+    <span class="dot" style="--count:3"></span>
+</div>'></code-block>
+            </template>
+
+            <template v-slot:css>
+                <code-block language="css" content = '.spinner--line-jump
+{
+    position: relative;
+    width: 150px;
+    height: 50px;
+}
+
+.spinner--line-jump .dot
+{
+    position: absolute;
+    left: calc(var(--count) * 50px);
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0 auto;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: calc(var(--count) * (1s / 2));
+    animation-name: spinner--line-jump-animation;
+    
+}
+
+@keyframes spinner--line-jump-animation
+{
+    0%
+    {
+        top: 50%;
+    }
+
+    12.5%
+    {
+        top: 0px;
+    }
+
+    25%
+    {
+        top: 50%;
+    }
+
+}'></code-block>
+            </template>
+        </component-presentation>
         <component-presentation color="#540179"></component-presentation>
         <component-presentation  color="#333"></component-presentation>
     </carousel>
@@ -96,4 +160,5 @@ export default {
   }
 }
 </script>
-<style type="text/css" src="@/styles/spinner-merge.css"></style>
+<style type="text/css" src="@/styles/spinner--merge.css"></style>
+<style type="text/css" src="@/styles/spinner--line-jump.css"></style>
