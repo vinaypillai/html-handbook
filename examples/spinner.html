@@ -5,7 +5,7 @@
 </head>
 <body>
 <div>
-    <div class="spinner">
+    <div class="spinner--merge">
         <span style="--counter:0"></span>
         <span style="--counter:1"></span>
         <span style="--counter:2"></span>
@@ -22,61 +22,6 @@
         width: 100vw;
         justify-content: center;
         align-items: center;
-    }
-    .spinner{
-        position: relative;
-        width: 120px;
-        height: 120px;
-        animation: spin-container;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-out;
-        animation-duration: 2s;
-        animation-delay: 2s;
-    }
-    .spinner span{
-        --width: 30px;
-        --height: 30px;
-        display: block;
-        width: var(--width);
-        height: var(--height);
-        top: 0;
-        left: 0;
-        background-color: #FFF;
-        position: absolute;
-        animation: spin;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-out;
-        animation-duration: 2s;
-        animation-delay: calc(var(--counter) * 0.5s);
-        border-radius: 50%;
-    }
-    @keyframes spin-container{
-        0%,100%{
-            width: 120px;
-            height: 120px;
-        }
-        50%{
-            width: 30px;
-            height: 30px;
-        }
-    }
-    @keyframes spin{
-        0%,100% {
-            top: 0;
-            left: 0;
-        }
-        25% {
-            top: 0;
-            left: calc(100% - var(--width));
-        }
-        50% {
-            top: calc(100% - var(--height));
-            left: calc(100% - var(--width));
-        }
-        75% {
-            top: calc(100% - var(--height));
-            left: 0;
-        }
     }
 </style>
 </body>
