@@ -1,5 +1,5 @@
 <template>
-    <div class="carousel" :style="{'--current':currentSlide}">
+    <div class="carousel" :style="{'--currentSlide':currentSlide}">
         <slot></slot>
         <div class="carousel-button-wrapper">
             <span
@@ -17,14 +17,18 @@
         data(){
             return {
                 currentSlide:0,
+                componentLoaded:false,
             }
         },
         computed:{
             slides(){
-                return this.$slots.default.filter((node)=>{
-                    return node.componentOptions && 
-                        node.componentOptions.tag == "carousel-slide"
-                });
+                if(this.componentLoaded){     
+                    return this.$slots.default.filter((node)=>{
+                        return node.elm && node.elm.classList.contains("carousel-slide");
+                    });
+                }else{
+                    return [];
+                }
             },
             hasNextSlide(){
                 return this.currentSlide < this.slides.length - 1;
@@ -45,6 +49,11 @@
                     })
                 }
             }
+        },
+        async mounted(){
+            this.componentLoaded = false;
+            await this.$nextTick();
+            this.componentLoaded = true;
         }
     }
 </script>

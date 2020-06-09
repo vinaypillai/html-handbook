@@ -5,18 +5,27 @@
     export default {
         "name":"carousel-slide",
         props:{
-
+            idx:{
+                type:Number,
+                default:0,
+            }
         },
         data(){
             return {
                 index:0,
             }
         },
-        mounted(){
-        },
         computed:{
             currentSlide(){
                 return this.$parent.$vnode.componentInstance.currentSlide;
+            }
+        },
+        watch:{
+            idx:{
+                immediate:true,
+                handler(idx){
+                    this.index = idx;
+                }
             }
         }
     }
