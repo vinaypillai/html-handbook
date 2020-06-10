@@ -90,7 +90,7 @@
     --control-margin: 30px;
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: calc(100 * var(--vh, 1vh));
     overflow:hidden;
     position: relative;
     .carousel-button-wrapper{

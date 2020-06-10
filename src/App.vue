@@ -17,3 +17,12 @@ body{
   color: #2c3e50;
 }
 </style>
+<script type="text/javascript">
+  window.addEventListener("load",()=>{
+    const app = document.getElementById("app");
+    app.style.setProperty("--vh",(window.innerHeight/100)+"px");
+    window.addEventListener("resize",()=>{
+      app.style.setProperty("--vh",(window.innerHeight/100)+"px");
+    })
+  })
+</script>
