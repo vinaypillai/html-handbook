@@ -38,3 +38,4 @@ export default {
 <style type="text/css" src="@/styles/spinner--merge.css"></style>
 <style type="text/css" src="@/styles/spinner--line-jump.css"></style>
 <style type="text/css" src="@/styles/spinner--unfolding-rect.css"></style>
+<style type="text/css" src="@/styles/spinner--fade.css"></style>

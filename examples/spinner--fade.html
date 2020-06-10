@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <div class="spinner--fade">
+        <span style="--counter:0"></span>
+        <span style="--counter:1"></span>
+        <span style="--counter:2"></span>
+        <span style="--counter:3"></span>
+        <span style="--counter:4"></span>
+        <span style="--counter:5"></span>
+        <span style="--counter:6"></span>
+    </div>
+</div>
+<style type="text/css">
+    body{
+        background: #333;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+    .spinner--fade{
+        position: relative;
+        width: 80px;
+        height: 80px;
+        animation: spin-fade;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: 3s;
+    }
+    .spinner--fade span{
+        position: absolute;
+        width: 10px;
+        height: inherit;
+        animation: spin-fade;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: 2s;
+        animation-delay: calc(var(--counter) * 0.285s);
+        display: block;
+        left: calc(50% - 5px);
+        top: 0;
+    }
+    .spinner--fade span::after{
+        content: "";
+        --width: 10px;
+        --height: 10px;
+        display: block;
+        width: var(--width);
+        height: var(--height);
+        left: calc(50% - var(--width) / 2);
+        animation: spin-fade__ball;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-duration: 4s;
+        animation-delay: calc(var(--counter) * 0.285s);
+        top: 0;
+        background-color: #FFF;
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0;
+    }
+    @keyframes spin-fade{
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes spin-fade__ball{
+        0%,60%{
+            width: var(--width);
+            height: var(--height);
+            opacity: 0;
+        }
+        30% {
+            width: calc(2 *  var(--width));
+            height: calc(2 *  var(--height));
+            opacity: 1;
+        }
+    }
+</style>
+</body>
+</html>
