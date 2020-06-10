@@ -1,5 +1,5 @@
 <template>
-    <div class="carousel" :style="{'--currentSlide':currentSlide}">
+    <div class="carousel" :style="{'--currentSlide':currentSlide}" ref="carousel">
         <slot></slot>
         <div class="carousel-button-wrapper">
             <span
@@ -8,8 +8,8 @@
             @click="currentSlide=i"
             :class="{'active':currentSlide==i}"></span>
         </div>
-        <div class="carousel-left-arrow" v-if="hasPrevSlide" @click="currentSlide--"></div>
-        <div class="carousel-right-arrow" v-if="hasNextSlide" @click="currentSlide++"></div>
+        <div class="carousel-left-arrow" v-if="hasPrevSlide" @click="prevSlide()"></div>
+        <div class="carousel-right-arrow" v-if="hasNextSlide" @click="nextSlide()"></div>
     </div>
 </template>
 <script>
@@ -18,7 +18,22 @@
             return {
                 currentSlide:0,
                 componentLoaded:false,
+                touchStartX:0,
+                minTouchDistance: 100
+
             }
+        },
+        methods:{
+            nextSlide(){
+                if(this.hasNextSlide){
+                    this.currentSlide++;
+                }
+            },
+            prevSlide(){
+                if(this.hasPrevSlide){
+                    this.currentSlide--;
+                }
+            },
         },
         computed:{
             slides(){
@@ -54,6 +69,19 @@
             this.componentLoaded = false;
             await this.$nextTick();
             this.componentLoaded = true;
+            this.$refs.carousel.addEventListener("touchstart",(event)=>{
+                this.touchStartX =  event.changedTouches[0].clientX;
+            })
+            this.$refs.carousel.addEventListener("touchend",(event)=>{
+                const touchEndX = event.changedTouches[0].clientX;
+                if(Math.abs(touchEndX-this.touchStartX) > this.minTouchDistance){
+                    if(touchEndX< this.touchStartX){
+                        this.nextSlide();
+                    }else{
+                        this.prevSlide();
+                    }
+                }
+            })
         }
     }
 </script>
