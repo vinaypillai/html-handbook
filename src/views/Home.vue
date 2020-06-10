@@ -37,3 +37,4 @@ export default {
 </script>
 <style type="text/css" src="@/styles/spinner--merge.css"></style>
 <style type="text/css" src="@/styles/spinner--line-jump.css"></style>
+<style type="text/css" src="@/styles/spinner--unfolding-rect.css"></style>
