@@ -1,18 +1,5 @@
-export default {
-    data:[{
-        name:"spinner--merge",
-        color:"#6B012A",
-        preview:`<div class="spinner--merge"><span style="--counter:0"></span><span style="--counter:1"></span><span style="--counter:2"></span><span style="--counter:3"></span></div>`,
-        code:{
-           html:
-`<div class="spinner--merge">
-    <span style="--counter:0"></span>
-    <span style="--counter:1"></span>
-    <span style="--counter:2"></span>
-    <span style="--counter:3"></span>
-</div>`,
-            css:
-`.spinner--merge{
+/*Spinner Merge*/
+.spinner--merge{
     position: relative;
     width: 120px;
     height: 120px;
@@ -66,23 +53,9 @@ export default {
         top: calc(100% - var(--height));
         left: 0;
     }
-}`,
-        }
-    },
-    {
-        name:"spinner--line-jump",
-        color:"#082C7D",
-        preview:`<div class="spinner--line-jump"><span class="dot" style="--count:0"></span><span class="dot" style="--count:1"></span><span class="dot" style="--count:2"></span><span class="dot" style="--count:3"></span></div>`,
-        code:{
-           html:
-`<div class="spinner--line-jump">
-    <span class="dot" style="--count:0"></span>
-    <span class="dot" style="--count:1"></span>
-    <span class="dot" style="--count:2"></span>
-    <span class="dot" style="--count:3"></span>
-</div>`,
-            css:
-`.spinner--line-jump {
+}
+/*Spinner Line Jump*/
+.spinner--line-jump {
      position: relative;
      width: 150px;
      height: 50px;
@@ -112,23 +85,9 @@ export default {
      25% {
          top: 50%;
     }
-}`,
-        }
-    },
-    {
-        color:"#540179",
-        preview:`<div class="spinner--unfolding-rect"><span></span><span></span><span></span><span></span><span class="flipper"></span></div>`,
-        code:{
-            html:
-`<div class="spinner--unfolding-rect">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span class="flipper"></span>
-</div>`,
-            css: 
-`.spinner--unfolding-rect{
+}
+/*Spinner Unfolding Rect*/
+.spinner--unfolding-rect{
     position: relative;
     width: 80px;
     height: 30px;
@@ -189,25 +148,9 @@ export default {
         left: calc(100% - var(--width));
         transform: rotateY(720deg);
     }
-}`
-        } 
-    },
-    {
-        color:"#333",
-        preview:`<div class="spinner--fade"><span style="--counter:0"></span><span style="--counter:1"></span><span style="--counter:2"></span><span style="--counter:3"></span><span style="--counter:4"></span><span style="--counter:5"></span><span style="--counter:6"></span></div>`,
-        code:{
-            html:
-`<div class="spinner--fade">
-    <span style="--counter:0"></span>
-    <span style="--counter:1"></span>
-    <span style="--counter:2"></span>
-    <span style="--counter:3"></span>
-    <span style="--counter:4"></span>
-    <span style="--counter:5"></span>
-    <span style="--counter:6"></span>
-</div>`,
-            css:
-`.spinner--fade{
+}
+/*Spinner Fade*/
+.spinner--fade{
     position: relative;
     width: 80px;
     height: 80px;
@@ -267,38 +210,9 @@ export default {
         height: calc(2 *  var(--height));
         opacity: 1;
     }
-}`
-        }
-    },
-    {
-        color:"#8E4E00",
-        preview:`<div class="spinner--gear"><div class="gear" style="--pitch: 20px; --total-teeth:7; --tooth-radiusX:2px; --tooth-radiusY:2px"><div class="tooth" style="--counter:0"></div><div class="tooth" style="--counter:1"></div><div class="tooth" style="--counter:2"></div><div class="tooth" style="--counter:3"></div><div class="tooth" style="--counter:4"></div><div class="tooth" style="--counter:5"></div><div class="tooth" style="--counter:6"></div></div><div class="gear" style="--pitch: 20px; --total-teeth:9; --tooth-radiusX:2px; --tooth-radiusY:2px"><div class="tooth" style="--counter:0"></div><div class="tooth" style="--counter:1"></div><div class="tooth" style="--counter:2"></div><div class="tooth" style="--counter:3"></div><div class="tooth" style="--counter:4"></div><div class="tooth" style="--counter:5"></div><div class="tooth" style="--counter:6"></div><div class="tooth" style="--counter:7"></div><div class="tooth" style="--counter:8"></div></div></div>`,
-        code:{
-            html:
-`<div class="spinner--gear">
-    <div class="gear" style="--pitch: 20px; --total-teeth:7; --tooth-radiusX:2px; --tooth-radiusY:2px">
-        <div class="tooth" style="--counter:0"></div>
-        <div class="tooth" style="--counter:1"></div>
-        <div class="tooth" style="--counter:2"></div>
-        <div class="tooth" style="--counter:3"></div>
-        <div class="tooth" style="--counter:4"></div>
-        <div class="tooth" style="--counter:5"></div>
-        <div class="tooth" style="--counter:6"></div>
-    </div>
-    <div class="gear" style="--pitch: 20px; --total-teeth:9; --tooth-radiusX:2px; --tooth-radiusY:2px">
-        <div class="tooth" style="--counter:0"></div>
-        <div class="tooth" style="--counter:1"></div>
-        <div class="tooth" style="--counter:2"></div>
-        <div class="tooth" style="--counter:3"></div>
-        <div class="tooth" style="--counter:4"></div>
-        <div class="tooth" style="--counter:5"></div>
-        <div class="tooth" style="--counter:6"></div>
-        <div class="tooth" style="--counter:7"></div>
-        <div class="tooth" style="--counter:8"></div>
-    </div>
-</div>`,
-            css:
-`.spinner--gear{
+}
+/*Spinner Gear*/
+.spinner--gear{
     position: relative;
     height: 105px;
     width: 140px;
@@ -363,21 +277,4 @@ export default {
     100%{
         transform: rotate(360deg);
     }
-}`
-        }
-    },
-    {
-        color:"#05677D",
-        preview:``,
-        code:{
-
-        }
-    },
-    {
-        color:"#166D20",
-        preview:``,
-        code:{
-
-        }
-    }]
 }

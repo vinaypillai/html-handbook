@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <div class="spinner--gear">
+        <div class="gear" style="--pitch: 20px; --total-teeth:7; --tooth-radiusX:2px; --tooth-radiusY:2px">
+            <div class="tooth" style="--counter:0"></div>
+            <div class="tooth" style="--counter:1"></div>
+            <div class="tooth" style="--counter:2"></div>
+            <div class="tooth" style="--counter:3"></div>
+            <div class="tooth" style="--counter:4"></div>
+            <div class="tooth" style="--counter:5"></div>
+            <div class="tooth" style="--counter:6"></div>
+        </div>
+        <div class="gear" style="--pitch: 20px; --total-teeth:9; --tooth-radiusX:2px; --tooth-radiusY:2px">
+            <div class="tooth" style="--counter:0"></div>
+            <div class="tooth" style="--counter:1"></div>
+            <div class="tooth" style="--counter:2"></div>
+            <div class="tooth" style="--counter:3"></div>
+            <div class="tooth" style="--counter:4"></div>
+            <div class="tooth" style="--counter:5"></div>
+            <div class="tooth" style="--counter:6"></div>
+            <div class="tooth" style="--counter:7"></div>
+            <div class="tooth" style="--counter:8"></div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    body{
+        background: #333;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+    .spinner--gear{
+        position: relative;
+        height: 105px;
+        width: 140px;
+    }
+    .spinner--gear .gear:first-child{
+        animation-duration: 3.5s;
+        left:12.5px;
+        top: 47px;
+    }
+    .spinner--gear .gear:last-child{
+        animation-duration: 4.5s;
+        animation-direction: reverse;
+        right: 12.5px;
+        top: 14px;
+    }
+    .spinner--gear .gear{
+        --diameter: calc(var(--pitch) * var(--total-teeth) / 3.14);
+        width: var(--diameter);
+        height: var(--diameter);
+        --tooth-width: calc((var(--total-teeth) + 2) * var(--pitch) / 3.14 - var(--diameter));
+        border-radius: 50%;
+        position: absolute;
+        animation-name: spin--gear;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;;
+    }
+    .spinner--gear .gear::after{
+        content: "";
+        position: absolute;
+        --border-width: var(--tooth-width);
+        --inner-diameter: calc(100% - 1.25 * var(--border-width));
+        transform-origin: center;
+        left: calc(50% - var(--inner-diameter) / 2 - var(--border-width));
+        top: calc(50% - var(--inner-diameter) / 2 - var(--border-width));
+        width: var(--inner-diameter);
+        height: var(--inner-diameter);
+        border: solid var(--border-width) #FFF;
+        border-radius: 50%;
+    }
+    .spinner--gear .gear .tooth{
+        --deg: calc(var(--counter) * 360deg / var(--total-teeth));
+        transform-origin: center bottom;
+        position: absolute;
+        bottom: 50%;
+        left: calc(50% - var(--tooth-width) / 2);
+        height: calc(50% + var(--tooth-width));
+        width: var(--tooth-width);
+        transform: rotate(var(--deg));
+    }
+    .spinner--gear .gear .tooth::after{
+        content: "";
+        width: var(--tooth-width);
+        height: calc(var(--tooth-width));
+        background-color: #FFF;
+        display: block;
+        border-radius: var(--tooth-radiusX) var(--tooth-radiusY);
+    }
+    @keyframes spin--gear{
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+</style>
+</body>
+</html>
