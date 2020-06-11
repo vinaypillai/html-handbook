@@ -16,6 +16,7 @@ body{
     background-color: #f5f5dc;
 }
 .button--simple{
+    --color: #FFF;
     --button-height: 4px;
     position: relative;
     z-index: 0;
@@ -26,7 +27,8 @@ body{
     font-family: "Lato",sans-serif;
     background-color:#fcba03;
     padding: 20px 40px;
-    color: #FFF;
+    color: var(--color);
+    -webkit-text-fill-color: var(--color);
     font-size: 25px;
     border-radius: 100px;
     cursor: pointer;
@@ -49,7 +51,6 @@ body{
 }
 .button--simple:active{
     top: calc(2 * var(--button-height));
-    box-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 .button--simple:active::after{
     top:0;
