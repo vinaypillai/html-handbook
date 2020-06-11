@@ -518,9 +518,87 @@ export default {
     },
     {
         color:"#166D20",
-        preview:``,
+        preview:`<div class = "spinner--cube-jump"><span class = "dot" style = "--count:0"></span><span class = "dot" style = "--count:1"></span><span class = "dot" style = "--count:2"></span><span class = "dot" style = "--count:3"></span></div>`,
         code:{
+          html:
+`<div class = "spinner--cube-jump">
+  <span class="dot" style="--count:0"></span>
+  <span class="dot" style="--count:1"></span>
+  <span class="dot" style="--count:2"></span>
+  <span class="dot" style="--count:3"></span>
+</div>`,
+          css:
+`.spinner--cube-jump {
+  position: relative;
+  width: 180px;
+  height: 50px;
+  padding: 10px 0;
+  transform: rotateY(180deg);
+}
 
+.spinner--cube-jump .dot {
+  position: absolute;
+  left: calc(var(--count) * 50px);
+  top: 50%;
+  --diameter: 30px;
+  width: var(--diameter);
+  height: var(--diameter);
+  border-radius: 7.5px;
+  background-color: #fff;
+  margin: 0 auto;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: calc(var(--count) * (1s / 2));
+  animation-name: spinner--cube-jump-animation;
+}
+
+@keyframes spinner--cube-jump-animation {
+  0% {
+    transform: rotate(0deg);
+    height: var(--diameter);
+    width: var(--diameter);
+    top: 50%;
+  }
+
+  6.25% {
+    height: calc(1.2 * var(--diameter));
+    top: calc(10% - 0.2 * var(--diameter));
+  }
+
+  12.5% {
+    transform: rotate(180deg);
+    top: 0px;
+    height: var(--diameter);
+  }
+
+  16.25% {
+    height: calc(1.2 * var(--diameter));
+  }
+
+  20% {
+    height: var(--diameter);
+    width: var(--diameter);
+    top: 50%;
+  }
+
+  25% {
+    left: calc(var(--count) * 50px);
+    top: calc(50% + 0.4 * var(--diameter));
+    width: calc(1.2 * var(--diameter));
+    height: calc(0.6 * var(--diameter));
+  }
+
+  30% {
+    height: var(--diameter);
+    width: var(--diameter);
+    top: 50%;
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}`
         }
     }]
 
