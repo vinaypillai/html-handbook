@@ -9,6 +9,11 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/spinners/',
+    name: 'Spinners',
+    component: ()=> import('../views/Spinners.vue')
   }
 ]
 

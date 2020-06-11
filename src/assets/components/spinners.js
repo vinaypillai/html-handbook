@@ -521,7 +521,7 @@ export default {
         preview:`<div class = "spinner--cube-jump"><span class = "dot" style = "--count:0"></span><span class = "dot" style = "--count:1"></span><span class = "dot" style = "--count:2"></span><span class = "dot" style = "--count:3"></span></div>`,
         code:{
           html:
-`<div class = "spinner--cube-jump">
+`<div class="spinner--cube-jump">
   <span class="dot" style="--count:0"></span>
   <span class="dot" style="--count:1"></span>
   <span class="dot" style="--count:2"></span>
