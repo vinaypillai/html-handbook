@@ -55,69 +55,8 @@ export default {
     },
     {
       color:"#21695D",
-      preview:`<div class="button--wrapper"><div class="button--profile">Button</div></div>`,
-      code:{
-        html:
-`<div class="button--wrapper">
-        <div class="button--profile">
-            Button
-        </div>
-    </div>`,
-
-        css:
-`.button--wrapper {
-  position: absolute;
-  top: calc(50% - 37.5px);
-  left: calc(50% - 100px);
-  height: 75px;
-  width: 200px;
-}
-
-.button--profile {
-  background-color: #21695D;
-  color: #fff;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #fff;
-  width: 200px;
-  height: 75px;
-  position: relative;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-size: 28px;
-  letter-spacing: 4px;
-  z-index: 2;
-  transition: color 0.2s ease-in-out;
-}
-
-.button--profile:hover {
-  cursor: pointer;
-  color: #21695D;
-  transition: background-color 0s ease-in-out 0.2s;
-  background-color: #fff;
-}
-
-.button--profile::before {
-  position: absolute;
-  top: 0px;
-  left: 0;
-  right: 0;
-  height: 0px;
-  content: "";
-  background-color: #fff;
-  z-index: -1;
-  transition: height 0.2s ease-in-out;
-}
-
-.button--profile:hover::before {
-  height: 75px;
-}`
-      },
+      preview:``,
+      code:{},
     },]
 
 }
