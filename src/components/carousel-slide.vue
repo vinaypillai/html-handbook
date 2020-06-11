@@ -1,5 +1,5 @@
 <template>
-    <div class="carousel-slide" :style="{'--index':index, '--currentSlide':currentSlide}"><slot></slot></div>
+    <div :class="{'carousel-slide':true,'active':idx==currentSlide}" :style="{'--index':index, '--currentSlide':currentSlide}"><slot></slot></div>
 </template>
 <script>
     export default {
@@ -8,6 +8,7 @@
             idx:{
                 type:Number,
                 default:0,
+                currentSlide:0,
             }
         },
         data(){
@@ -26,7 +27,8 @@
                 handler(idx){
                     this.index = idx;
                 }
-            }
+            },
+
         }
     }
 </script>

@@ -14,7 +14,12 @@ Vue.use(VueRouter)
     path: '/spinners/',
     name: 'Spinners',
     component: ()=> import('../views/Spinners.vue')
-  }
+  },
+  {
+    path: '/buttons/',
+    name: 'Buttons',
+    component: ()=> import('../views/Buttons.vue')
+  },
 ]
 
 const router = new VueRouter({

@@ -52,6 +52,9 @@ export default {
                 return [];
             }
 
+        },
+        currentSlide(){
+            return this.$parent.$vnode.componentInstance.currentSlide;
         }
     },
     async mounted(){
@@ -65,6 +68,10 @@ export default {
 </script>
 <style lang="scss" scoped>
     .component-slide{
+        --control-color: #FFF;
+        .dark &{
+            --control-color: #333;
+        }
         width: 100%;
         height: 100%;
         background-color: var(--bg-color);
@@ -80,7 +87,7 @@ export default {
             display: flex;
             justify-content: center;
             div{
-                color: #FFF;
+                color: var(--control-color);
                 text-transform: uppercase;
                 text-align: center;
                 padding: 20px min(40px, 5%);
@@ -91,7 +98,7 @@ export default {
                 &:hover,
                 &:active,
                 &.active{
-                    background-color: #FFF;
+                    background-color: var(--control-color);
                     color: var(--bg-color);
                 }
             }

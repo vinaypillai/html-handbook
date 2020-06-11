@@ -87,6 +87,10 @@
 </script>
 <style lang="scss" scoped>
 .carousel{
+    --control-color: #FFF;
+    .active.dark ~ *{
+        --control-color: #333;
+    }
     --control-margin: 30px;
     display: flex;
     width: 100vw;
@@ -104,12 +108,12 @@
         span{
             width: 10px;
             height: 10px;
-            background-color: #FFF;
+            background-color: var(--control-color);
             box-shadow: 0 0 5px rgba(0,0,0,0.3);
             border-radius: 50%;
             margin: 0 10px;
             cursor: pointer;
-            transition: opacity 0.15s ease-in-out;
+            transition: opacity,opacity, 0.15s ease-in-out;
             opacity: 0.5;
             &:hover,
             &.active{
@@ -124,12 +128,12 @@
         background-color: transparent;
         width: var(--width);
         height: var(--width);
-        border-top: solid var(--border-width) #FFF;
-        border-left: solid var(--border-width) #FFF;
+        border-top: solid var(--border-width) var(--control-color);
+        border-left: solid var(--border-width) var(--control-color);
         position: absolute;
         top: calc(50% - var(--width) * 1.414 / 2);
         cursor: pointer;
-        transition: opacity 0.15s ease-in-out;
+        transition: opacity,background-color, 0.15s ease-in-out;
         opacity: 0.5;
         &:hover{
             opacity:1;
