@@ -5,7 +5,8 @@
         v-for="button in buttons" 
         :key="button.name"
         :color="button.color"
-        :class="{'dark':button.dark}">
+        :class="{'dark':button.dark}"
+        :id="'view-'+button.name">
             <template v-slot:preview>
                 <div v-html="button.preview"></div>
             </template>
@@ -37,8 +38,17 @@ export default {
   mounted(){
     // Slide button js
     const button = document.getElementById("button--slide__switch");
+    const viewSlideButton = document.getElementById("view-button--slide");
     button.addEventListener("click",function(){
+        const componentSlide = viewSlideButton.getElementsByClassName("component-slide")[0];
         button.classList.toggle("on")
+        if(button.classList.contains("on")){
+            viewSlideButton.classList.add("dark");
+            componentSlide.style.setProperty("--bg-color", componentSlide.style.getPropertyValue('--slide-color'));
+        }else{  
+            viewSlideButton.classList.remove("dark");
+            componentSlide.style.setProperty("--bg-color","#333");
+        }
     })
   }
 }

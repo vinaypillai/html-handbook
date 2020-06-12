@@ -4,7 +4,8 @@
         <component-presentation 
         v-for="spinner in spinners" 
         :key="spinner.name"
-        :color="spinner.color">
+        :color="spinner.color"
+        :id="'view-'+spinner.name">
             <template v-slot:preview>
                 <div v-html="spinner.preview"></div>
             </template>

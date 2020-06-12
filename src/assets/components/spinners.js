@@ -116,6 +116,7 @@ export default {
         }
     },
     {
+        name:"spinner--unfolding-rect",
         color:"#540179",
         preview:`<div class="spinner--unfolding-rect"><span></span><span></span><span></span><span></span><span class="flipper"></span></div>`,
         code:{
@@ -193,6 +194,7 @@ export default {
         } 
     },
     {
+        name:"spinner--fade",
         color:"#333",
         preview:`<div class="spinner--fade"><span style="--counter:0"></span><span style="--counter:1"></span><span style="--counter:2"></span><span style="--counter:3"></span><span style="--counter:4"></span><span style="--counter:5"></span><span style="--counter:6"></span></div>`,
         code:{
@@ -271,6 +273,7 @@ export default {
         }
     },
     {
+        name:"spinner--gear",
         color:"#8E4E00",
         preview:`<div class="spinner--gear"><div class="gear" style="--pitch: 20px; --total-teeth:7; --tooth-radiusX:2px; --tooth-radiusY:2px"><div class="tooth" style="--counter:0"></div><div class="tooth" style="--counter:1"></div><div class="tooth" style="--counter:2"></div><div class="tooth" style="--counter:3"></div><div class="tooth" style="--counter:4"></div><div class="tooth" style="--counter:5"></div><div class="tooth" style="--counter:6"></div></div><div class="gear" style="--pitch: 20px; --total-teeth:9; --tooth-radiusX:2px; --tooth-radiusY:2px"><div class="tooth" style="--counter:0"></div><div class="tooth" style="--counter:1"></div><div class="tooth" style="--counter:2"></div><div class="tooth" style="--counter:3"></div><div class="tooth" style="--counter:4"></div><div class="tooth" style="--counter:5"></div><div class="tooth" style="--counter:6"></div><div class="tooth" style="--counter:7"></div><div class="tooth" style="--counter:8"></div></div></div>`,
         code:{
@@ -367,6 +370,7 @@ export default {
         }
     },
     {
+        name:"spinner--folding-square",
         color:"#05677D",
         preview:`<div class="spinner--folding-square"><div class="folding-square"></div><div class="folding-square"></div><div class="folding-square"></div><div class="folding-square"></div></div>`,
         code:{
@@ -517,6 +521,7 @@ export default {
         }
     },
     {
+        name:"spinner--cube-jump",
         color:"#166D20",
         preview:`<div class = "spinner--cube-jump"><span class = "dot" style = "--count:0"></span><span class = "dot" style = "--count:1"></span><span class = "dot" style = "--count:2"></span><span class = "dot" style = "--count:3"></span></div>`,
         code:{

@@ -1,15 +1,15 @@
 export default {
-    data:[
-    {
-      color:"#f5f5dc",
-      dark:true,
-      preview:`<div class="button--simple"><button>Button</button></div>`,
-      code:{
-        html:
+    data:[{
+        name:"button--simple",
+        color:"#f5f5dc",
+        dark:true,
+        preview:`<div class="button--simple"><button>Button</button></div>`,
+        code:{
+            html:
 `<div class="button--simple">
     <button>Button</button>
 </div>`,
-        css:
+            css:
 `@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 .button--simple{
     --color: #FFF;
@@ -52,16 +52,16 @@ export default {
     top:0;
     bottom: 0;
 }`
-      }
+        }
     },
     {
-      color:"#21695D",
-      preview:`<button class="button--profile">Button</button>`,
-      code:{
-        html:
+        name:"button--profile",
+        color:"#21695D",
+        preview:`<button class="button--profile">Button</button>`,
+        code:{
+            html:
 `<button class="button--profile">Button</button>`,
-
-        css:
+            css:
 `.button--profile {
     all: unset;
     --font-color: #fff;
@@ -110,6 +110,7 @@ export default {
         }
     },
     {
+        name:"button--slide",
         color:"#7fffd4",
         dark:true,
         preview:`<div class="button--slide"><div class="button--slide__outer">   <div class="button--slide__switch on" id="button--slide__switch"></div></div></div>`,
@@ -122,8 +123,9 @@ export default {
 </div>`,
             css:
 `.button--slide{
-    width: 110px;
-    height: 190px;
+    --width: 150px;
+    width: var(--width);
+    height: calc(1.727 * var(--width));
     border-radius: 5px;
     justify-content: center;
     align-items: center;

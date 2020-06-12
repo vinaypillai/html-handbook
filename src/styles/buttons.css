@@ -94,8 +94,9 @@
 }
 /*Button slide*/
 .button--slide{
-    width: 110px;
-    height: 190px;
+    --width: 150px;
+    width: var(--width);
+    height: calc(1.727 * var(--width));
     border-radius: 5px;
     justify-content: center;
     align-items: center;

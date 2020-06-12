@@ -1,6 +1,6 @@
 <template>
 <carousel-slide  :idx="index">
-    <div class="component-slide" :style="{'--bg-color':color}">
+    <div class="component-slide" :style="{'--bg-color':color,'--slide-color':color}">
         <nav class="slide-menu">
             <div v-for='option in visibleMenuOptions' 
             :key='option'
@@ -74,6 +74,7 @@ export default {
         }
         width: 100%;
         height: 100%;
+        transition: background-color, 0.15s ease-in-out;
         background-color: var(--bg-color);
         display: flex;
         justify-content: center;
