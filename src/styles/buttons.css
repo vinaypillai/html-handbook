@@ -41,7 +41,6 @@
 .button--simple:active::after{
     top:0;
     bottom: 0;
-<<<<<<< HEAD
 }
 
 /*Swipe Down Button*/
@@ -172,6 +171,4 @@
 }
 .button--slide__switch:not(.on):before{
     top: 85%;
-=======
->>>>>>> e724087b8ab1349a167bf339ad4cff729d363502
 }
