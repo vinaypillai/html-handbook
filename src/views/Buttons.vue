@@ -37,7 +37,7 @@ export default {
   },
   mounted(){
     // Jumping Color Chaning Button
-    [...document.getElementsByClassName("button--jumping-color-change-profile")]
+    [...document.getElementsByClassName("button--jumping-color-change")]
   .forEach(button => {
     button.addEventListener("click", function() {
       button.style.animation = "button--pill-jumping 2s 1 ease-in-out";

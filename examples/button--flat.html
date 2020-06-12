@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+        body{
+            background-color: #40ae44;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .button--flat{
+            --bg-color: #40ae44;
+            --color: #FFF;
+            all: unset;
+            padding: 20px 50px;
+            text-transform: uppercase;
+            font-family: "Lato", sans-serif;
+            font-weight: 300;
+            letter-spacing: 2px;
+            font-size: 20px;
+            border: solid 1px var(--color);
+            border-radius: 500px;
+            color: var(--color);
+            -webkit-text-fill-color: var(--color);
+            cursor: pointer;
+            transition: color, background-color,-webkit-text-fill-color,border-width, 0.15s ease-in-out;
+        }
+        .button--flat:hover{
+            background-color: var(--color);
+            color: var(--bg-color);
+            -webkit-text-fill-color: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+<button class="button--flat">Button</button>
+</body>
+</html>

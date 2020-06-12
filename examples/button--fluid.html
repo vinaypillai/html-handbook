@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+        body{
+            background-color: #D4900D;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .button--fluid{
+            --bg-color: #D4900D;
+            --color: #FFF;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            border-radius: 500px;
+            z-index: 1;
+        }
+        .button--fluid button{
+            all: unset;
+            padding: 20px 50px;
+            text-transform: uppercase;
+            font-family: "Lato", sans-serif;
+            font-weight: 300;
+            letter-spacing: 2px;
+            font-size: 20px;
+            border: solid 1px var(--color);
+            border-radius: inherit;
+            color: var(--color);
+            -webkit-text-fill-color: var(--color);
+            transition: color, background-color,-webkit-text-fill-color,border-width, 0.15s ease-in-out;
+        }
+        .button--fluid span{    
+            mix-blend-mode: difference;
+        }
+        .button--fluid::after{
+            content: "";
+            background-color: var(--color);
+            color: var(--bg-color);
+            -webkit-text-fill-color: var(--bg-color);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-radius: inherit;
+            z-index: -1;
+            clip-path: circle(0% at -25% 50%); 
+            transition: clip-path 1s;
+        }
+        .button--fluid:hover::after{
+            clip-path: circle(100%);
+        }
+        @keyframes button--fluid{
+            0% { }
+            100% {  }
+        }
+
+           /* animation-name:  button--fluid;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;*/
+    </style>
+</head>
+<body>
+<div class="button--fluid"><button><span>Button</button></div>
+</body>
+</html>
