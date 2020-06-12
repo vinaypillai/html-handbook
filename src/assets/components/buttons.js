@@ -56,27 +56,20 @@ export default {
     },
     {
       color:"#21695D",
-      preview:`<div class="button--wrapper"><div class="button--profile">Button</div></div>`,
+      preview:`<button class="button--profile">Button</button>`,
       code:{
         html:
-`<div class="button--wrapper">
-        <div class="button--profile">
-            Button
-        </div>
-    </div>`,
+`<button class="button--profile">
+      Button
+    </button>`,
 
         css:
-`.button--wrapper {
-  position: absolute;
-  top: calc(50% - 37.5px);
-  left: calc(50% - 100px);
-  height: 75px;
-  width: 200px;
-}
-
+`
 .button--profile {
+  all: unset;
+  --font-color: #fff;
   background-color: #21695D;
-  color: #fff;
+  color: var(--font-color);
   border-style: solid;
   border-width: 2px;
   border-color: #fff;
@@ -94,11 +87,13 @@ export default {
   letter-spacing: 4px;
   z-index: 2;
   transition: color 0.2s ease-in-out;
+  -webkit-text-fill-color: var(--font-color);
 }
 
 .button--profile:hover {
   cursor: pointer;
   color: #21695D;
+  --font-color: #21695D;
   transition: background-color 0s ease-in-out 0.2s;
   background-color: #fff;
 }
