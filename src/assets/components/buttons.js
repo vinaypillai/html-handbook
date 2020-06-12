@@ -62,7 +62,8 @@ export default {
             html:
 `<button class="button--profile">Button</button>`,
             css:
-`.button--profile {
+`@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+.button--profile {
     all: unset;
     --font-color: #fff;
     background-color: #21695D;
