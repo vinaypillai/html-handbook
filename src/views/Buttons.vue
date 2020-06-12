@@ -33,6 +33,13 @@ export default {
     carousel,
     codeBlock,
     componentPresentation
+  },
+  mounted(){
+    // Slide button js
+    const button = document.getElementById("button--slide__switch");
+    button.addEventListener("click",function(){
+        button.classList.toggle("on")
+    })
   }
 }
 </script>
