@@ -110,103 +110,11 @@ export default {
         }
     },
     {
-        name:"button--slide",
-        color:"#7fffd4",
-        dark:true,
-        preview:`<div class="button--slide"><div class="button--slide__outer">   <div class="button--slide__switch on" id="button--slide__switch"></div></div></div>`,
+        name:'',
+        color:'#21AD5A',
+        preview:``,
         code:{
-            html:
-`<div class="button--slide">
-    <div class="button--slide__outer">   
-        <div class="button--slide__switch on" id="button--slide__switch"></div>
-    </div>
-</div>`,
-            css:
-`.button--slide{
-    --width: 150px;
-    width: var(--width);
-    height: calc(1.727 * var(--width));
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFF;
-    z-index: 1;
-    position: relative;
-}
-.button--slide::after{
-    --button-height: 4px;
-    content: "";
-    position: absolute;
-    top: var(--button-height);
-    bottom: calc(-1 * var(--button-height));
-    left: 0;
-    right: 0;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    background-color: #Efefef;
-    border-radius: 5px;
-    z-index: 0;
-}
-/*Outer demarcation*/
-.button--slide__outer{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background-color: #FFF;
-    border-radius: 5px;
-    z-index: 2;
-}
-/*Sliding area*/
-.button--slide__switch{
-    width: 40%;
-    height: 53%;
-    border-radius: 5px;
-    position: relative;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.3), 0 0 5px rgba(0,0,0,0.1);
-    cursor: pointer;
-}
-.button--slide__switch.on{
-    background-color: #cbffcd;
-}
-.button--slide__switch:not(.on){
-    background-color:#FFCBCB;
-}
-/*Inner demarcation*/
-.button--slide__switch::after{
-    content: "";
-    position: absolute;
-    top: -5px;
-    bottom: -5px;
-    left: -5px;
-    right: -5px;
-    border-radius: 5px;
-    box-shadow: 0 0 2px rgba(0,0,0,0.1);
-}
-/*Toggle bar*/
-.button--slide__switch::before{
-    content: "";
-    position: absolute;
-    height: 15%;
-    left: 0;
-    right: 0;
-    border-radius: 5px;
-    background-color: #fcfcfc;
-    box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
-    transition: top 0.1s ease-in-out;
-}
-.button--slide__switch.on::before{
-    top: 0;
-}
-.button--slide__switch:not(.on):before{
-    top: 85%;
-}`,
-            js:
-`const button = document.getElementById("button--slide__switch");
-button.addEventListener("click",function(){
-    button.classList.toggle("on");
-})`
+
         }
     }]
 }

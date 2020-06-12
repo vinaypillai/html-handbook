@@ -20,6 +20,11 @@ Vue.use(VueRouter)
     name: 'Buttons',
     component: ()=> import('../views/Buttons.vue')
   },
+  {
+    path: '/toggles/',
+    name: 'Toggles',
+    component: ()=> import('../views/Toggles.vue')
+  },
 ]
 
 const router = new VueRouter({
