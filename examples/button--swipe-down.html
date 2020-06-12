@@ -9,7 +9,7 @@ body {
   background-color: #21695D;
 }
 
-.button--wrapper {
+.button--swipe-down-wrapper {
   position: absolute;
   top: calc(50% - 37.5px);
   left: calc(50% - 100px);
@@ -17,7 +17,7 @@ body {
   width: 200px;
 }
 
-.button--profile {
+.button--swipe-down-profile {
   all: unset;
   --font-color: #fff;
   background-color: #21695D;
@@ -42,7 +42,7 @@ body {
   -webkit-text-fill-color: var(--font-color);
 }
 
-.button--profile:hover {
+.button--swipe-down-profile:hover {
   cursor: pointer;
   color: #21695D;
   --font-color: #21695D;
@@ -50,7 +50,7 @@ body {
   background-color: #fff;
 }
 
-.button--profile::before {
+.button--swipe-down-profile::before {
   position: absolute;
   top: 0px;
   left: 0;
@@ -62,14 +62,14 @@ body {
   transition: height 0.2s ease-in-out;
 }
 
-.button--profile:hover::before {
+.button--swipe-down-profile:hover::before {
   height: 75px;
 }
 </style>
 </head>
 <body>
-	<div class="button--wrapper">
-		<button class="button--profile">
+	<div class="button--swipe-down-wrapper">
+		<button class="button--swipe-down-profile">
 			Button
 		</button>
 	</div>

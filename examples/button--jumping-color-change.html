@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+body {
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.button--jumping-color-change-profile {
+  all: unset;
+  background-color: #C45553;
+  color: #222;
+  border-radius: 500px;
+  padding: 20px 50px;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: 4px;
+  z-index: 2;
+}
+
+.button--jumping-color-change-profile:hover {
+  cursor: pointer;
+}
+
+@keyframes button--pill-jumping {
+  0%, 100% {
+    top: 0px;
+    bottom: 0px;
+  }
+
+  12.5% {
+    padding:7.5px 65px;
+    top: 25px;
+    bottom: 0px;
+    background-color: #C45553;
+  }
+
+  30% {
+    padding: 20px 50px;
+    bottom: 0px;
+    background-color: #fff;
+    box-shadow: 0 0 20px #fff;
+  }
+
+  50% {
+    top: -100px;
+    padding-top: 20px;
+  }
+
+  75% {
+    padding: 20px 50px;
+    bottom: 0;
+    background-color: #fff;
+    box-shadow: 0 0 20px #fff;
+  }
+
+  87.5% {
+    padding: 15px 55px;
+    top: 10px;
+    bottom: 0;
+    background-color: #C45553;
+  }
+}
+</style>
+</head>
+<body>
+		<button class="button--jumping-color-change-profile">
+			Jump!
+		</button>
+
+
+<script type="text/javascript">
+  [...document.getElementsByClassName("button--jumping-color-change-profile")]
+  .forEach(button => {
+    button.addEventListener("click", function() {
+      button.style.animation = "button--pill-jumping 2s 1 ease-in-out";
+
+      setTimeout(function() {
+        button.style.animation = "none";
+      }, 2000);
+    });
+  });
+
+  
+</script>
+</body>
+</html>

@@ -36,21 +36,19 @@ export default {
     componentPresentation
   },
   mounted(){
-    // Slide button js
-    const button = document.getElementById("button--slide__switch");
-    const viewSlideButton = document.getElementById("view-button--slide");
-    button.addEventListener("click",function(){
-        const componentSlide = viewSlideButton.getElementsByClassName("component-slide")[0];
-        button.classList.toggle("on")
-        if(button.classList.contains("on")){
-            viewSlideButton.classList.add("dark");
-            componentSlide.style.setProperty("--bg-color", componentSlide.style.getPropertyValue('--slide-color'));
-        }else{  
-            viewSlideButton.classList.remove("dark");
-            componentSlide.style.setProperty("--bg-color","#333");
-        }
-    })
+    // Jumping Color Chaning Button
+    [...document.getElementsByClassName("button--jumping-color-change-profile")]
+  .forEach(button => {
+    button.addEventListener("click", function() {
+      button.style.animation = "button--pill-jumping 2s 1 ease-in-out";
+
+      setTimeout(function() {
+        button.style.animation = "none";
+      }, 2000);
+    });
+  });
   }
 }
 </script>
 <style type="text/css" src="@/styles/buttons.css"></style>
+

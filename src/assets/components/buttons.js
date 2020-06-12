@@ -55,15 +55,15 @@ export default {
         }
     },
     {
-        name:"button--profile",
+        name:"button--swipe-down-profile",
         color:"#21695D",
-        preview:`<button class="button--profile">Button</button>`,
+        preview:`<button class="button--swipe-down-profile">Button</button>`,
         code:{
             html:
-`<button class="button--profile">Button</button>`,
+`<button class="button--swipe-down-profile">Button</button>`,
             css:
 `@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-.button--profile {
+.button--swipe-down-profile {
     all: unset;
     --font-color: #fff;
     background-color: #21695D;
@@ -87,14 +87,14 @@ export default {
     transition: color 0.2s ease-in-out;
     -webkit-text-fill-color: var(--font-color);
 }
-.button--profile:hover {
+.button--swipe-down-profile:hover {
     cursor: pointer;
     color: #21695D;
     --font-color: #21695D;
     transition: background-color 0s ease-in-out 0.2s;
     background-color: #fff;
 }
-.button--profile::before {
+.button--swipe-down-profile::before {
     position: absolute;
     top: 0px;
     left: 0;
@@ -105,16 +105,93 @@ export default {
     z-index: -1;
     transition: height 0.2s ease-in-out;
 }
-.button--profile:hover::before {
+.button--swipe-down-profile:hover::before {
     height: 75px;
 }`
         }
     },
     {
         name:'',
-        color:'#21AD5A',
-        preview:``,
+        color:'#222',
+        preview:`<button class="button--jumping-color-change-profile">Jump!</button>`,
         code:{
+            html:
+`<button class="button--jumping-color-change-profile">Jump!</button>`,
+
+            css:
+`@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+.button--jumping-color-change-profile {
+  all: unset;
+  background-color: #C45553;
+  color: #222;
+  border-radius: 500px;
+  padding: 20px 50px;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: 4px;
+  z-index: 2;
+}
+
+.button--jumping-color-change-profile:hover {
+  cursor: pointer;
+}
+
+@keyframes button--pill-jumping {
+  0%, 100% {
+    top: 0px;
+    bottom: 0px;
+  }
+
+  12.5% {
+    padding:7.5px 65px;
+    top: 25px;
+    bottom: 0px;
+    background-color: #C45553;
+  }
+
+  30% {
+    padding: 20px 50px;
+    bottom: 0px;
+    background-color: #fff;
+    box-shadow: 0 0 20px #fff;
+  }
+
+  50% {
+    top: -100px;
+    padding-top: 20px;
+  }
+
+  75% {
+    padding: 20px 50px;
+    bottom: 0;
+    background-color: #fff;
+    box-shadow: 0 0 20px #fff;
+  }
+
+  87.5% {
+    padding: 15px 55px;
+    top: 10px;
+    bottom: 0;
+    background-color: #C45553;
+  }
+}`,
+            js:
+`[...document.getElementsByClassName("button--jumping-color-change-profile")]
+.forEach(button => {
+    button.addEventListener("click", function() {
+      button.style.animation = "button--pill-jumping 2s 1 ease-in-out";
+      setTimeout(function() {
+        button.style.animation = "none";
+      }, 2000);
+    });
+});`
 
         }
     }]
