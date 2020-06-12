@@ -5,20 +5,22 @@
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
         body{
-            background-color: #D4900D;
+            background-color: #C481F3;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
         .button--fluid{
-            --bg-color: #D4900D;
+            --bg-color: #C481F3;
             --color: #FFF;
             display: inline-block;
             position: relative;
             cursor: pointer;
             border-radius: 500px;
             z-index: 1;
+            transform: translateZ(0px);
+            overflow: hidden;
         }
         .button--fluid button{
             all: unset;
@@ -37,33 +39,44 @@
         .button--fluid span{    
             mix-blend-mode: difference;
         }
-        .button--fluid::after{
+        .button--fluid::after,
+        .button--fluid::before{
+            --deg: 0deg;
+            --duration: 9s;
             content: "";
-            background-color: var(--color);
-            color: var(--bg-color);
-            -webkit-text-fill-color: var(--bg-color);
+            width: 400%;
+            padding-bottom: 400%;
             position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            border-radius: inherit;
-            z-index: -1;
-            clip-path: circle(0% at -25% 50%); 
-            transition: clip-path 1s;
+            top: 200%;
+            background: radial-gradient(#FFF, #FFF, transparent);
+            left: -150%;
+            z-index: -2;
+            animation: button--fluid var(--duration) linear infinite;
+            transition: top 3s ease-out;
+            border-radius: 45%;
         }
-        .button--fluid:hover::after{
-            clip-path: circle(100%);
+        .button--fluid::before{
+            border-radius: 40%;
+            animation-duration: calc(var(--duration) - 1s);
+            z-index: -1;
+        }
+        .button--fluid:hover::after,
+        .button--fluid:hover::before{
+            top: -20%;
         }
         @keyframes button--fluid{
-            0% { }
-            100% {  }
+            0% { 
+                transform: rotate(var(--deg));
+                border-radius: 30%;
+            }
+            50%{
+                border-radius: 45%;
+            }
+            100% { 
+                transform: rotate(calc(var(--deg) + 720deg)); 
+                border-radius: 30%; 
+            }
         }
-
-           /* animation-name:  button--fluid;
-            animation-duration: 2s;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: 1;*/
     </style>
 </head>
 <body>

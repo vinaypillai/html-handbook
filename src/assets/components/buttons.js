@@ -285,5 +285,86 @@ export default {
     clip-path: circle(100%);
 }`
       }
+    },
+    {
+      name:'button--fluid',
+      color:'#C481F3',
+      preview:`<div class="button--fluid"><button><span>Button</span></button></div>`,
+      code:{
+        html:
+`<div class="button--fluid">
+    <button>
+        <span>Button</span>
+    </button>
+</div>`,
+        css:
+`@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+.button--fluid{
+    --bg-color: #C481F3;
+    --color: #FFF;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    border-radius: 500px;
+    z-index: 1;
+    transform: translateZ(0px);
+    overflow: hidden;
+}
+.button--fluid button{
+    all: unset;
+    padding: 20px 50px;
+    text-transform: uppercase;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 20px;
+    border: solid 1px var(--color);
+    border-radius: inherit;
+    color: var(--color);
+    -webkit-text-fill-color: var(--color);
+    transition: color, background-color,-webkit-text-fill-color,border-width, 0.15s ease-in-out;
+}
+.button--fluid span{    
+    mix-blend-mode: difference;
+}
+.button--fluid::after,
+.button--fluid::before{
+    --deg: 0deg;
+    --duration: 9s;
+    content: "";
+    width: 400%;
+    padding-bottom: 400%;
+    position: absolute;
+    top: 200%;
+    background: radial-gradient(#FFF, #FFF, transparent);
+    left: -150%;
+    z-index: -2;
+    animation: button--fluid var(--duration) linear infinite;
+    transition: top 3s ease-out;
+    border-radius: 45%;
+}
+.button--fluid::before{
+    border-radius: 40%;
+    animation-duration: calc(var(--duration) - 1s);
+    z-index: -1;
+}
+.button--fluid:hover::after,
+.button--fluid:hover::before{
+    top: -20%;
+}
+@keyframes button--fluid{
+    0% { 
+        transform: rotate(var(--deg));
+        border-radius: 30%;
+    }
+    50%{
+        border-radius: 45%;
+    }
+    100% { 
+        transform: rotate(calc(var(--deg) + 720deg)); 
+        border-radius: 30%; 
+    }
+}`
+      }
     }]
 }
