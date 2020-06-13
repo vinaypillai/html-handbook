@@ -5,7 +5,7 @@
             <div v-for='option in visibleMenuOptions' 
             :key='option'
             @click="currentView=option" 
-            :class="{'active':currentView==option}">{{option}}</div>
+            :class="{'active':currentView==option, 'view-option':true}">{{option}}</div>
         </nav>
         <section class="content-wrapper" v-show="currentView=='preview'">
             <slot name="preview"></slot>
@@ -87,7 +87,7 @@ export default {
             width: 100%;
             display: flex;
             justify-content: center;
-            div{
+            .view-option{
                 color: var(--control-color);
                 text-transform: uppercase;
                 text-align: center;

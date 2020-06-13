@@ -292,3 +292,61 @@
         border-radius: 30%; 
     }
 }
+/* Button Gradient*/
+.button--gradient{
+    --bg-color1: #E9748F;
+    --bg-color2: #15A3E4;
+    --color: #FFF;
+    all: unset;
+    padding: 20px 50px;
+    position: relative;
+    text-transform: uppercase;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 20px;
+    border: solid 1px var(--color);
+    border-radius: 500px;
+    color: var(--color);
+    background:linear-gradient(45deg, var(--bg-color1), var(--bg-color2));
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+    -webkit-text-fill-color: var(--color);
+    cursor: pointer;
+    z-index: 1;
+}
+.button--gradient::after,
+.button--gradient::before {
+    --max-opacity: 1;
+    content:"";
+    background:linear-gradient(45deg, var(--bg-color2),var(--bg-color1));
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -2;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+    transition: opacity 5s ease-in-out;
+
+}
+.button--gradient::before {
+    --max-opacity: 0.3;
+    background:linear-gradient(45deg, var(--bg-color2),var(--bg-color1),var(--bg-color1),var(--bg-color2));
+}
+.button--gradient:not(:active):hover::after{
+    animation: button--gradient 5s ease-in-out infinite;
+}
+.button--gradient:not(:active):hover::before{
+    animation: button--gradient 2.5s ease-in-out infinite 1.666s;
+    z-index: -1
+}
+@keyframes button--gradient{
+    0%, 100%{
+        opacity: 0;
+    }
+    50%{
+        opacity: var(--max-opacity);
+    }
+}
