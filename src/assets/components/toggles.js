@@ -98,5 +98,90 @@ toggle.addEventListener("click",function(){
     toggle.classList.toggle("on");
 })`
         }
+    },
+    {
+        name: "toggle--3d-glow",
+        color: "#222222",
+        dark: false,
+        preview: `<div class="toggle--glowing-3d"><button class="toggle--glowing-3d__button"></button></div>`,
+        code:{
+            html:
+`<div class="toggle--glowing-3d">
+    <button class="toggle--glowing-3d__button"></button>
+</div>`,
+            css:
+`.toggle--glowing-3d
+    {
+        all: unset;
+        background-color: #222;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        box-shadow: 0 0 15px #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 4px solid #222;
+        box-shadow: 0 -15px 15px rgba(255,255,255,0.05), 
+                    inset 0 -15px 15px rgba(255,255,255,0.05),
+                    0 15px 15px rgba(0,0,0,0.05),
+                    inset 0 15px 15px rgba(0,0,0,0.05);
+    }
+
+    .toggle--glowing-3d__button
+    {
+        all: unset;
+        background-color: #222;
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        box-shadow: 0 0 15px #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: 4px solid #272727;
+        box-shadow: 0 -15px 20px rgba(255,255,255,0.05),
+                    inset 0 -15px 20px rgba(0,0,0,0.05),
+                    0 15px 20px rgba(0,0,0,0.05),
+                    inset 0 15px 20px rgba(255,255,255,0.05);
+    }
+
+    .toggle--glowing-3d__button.active{
+        border: 2px solid #222;
+        box-shadow: 0 -15px 20px rgba(255,255,255,0.05), 
+                    inset 0 -15px 20px rgba(255,255,255,0.05),
+                    0 15px 20px rgba(0,0,0,0.05),
+                    inset 0 15px 20px rgba(0,0,0,0.05);
+    }
+
+    .toggle--glowing-3d__button::after
+    {
+        --color: #ce1c3e;
+        --border-color: #7f1025;
+        content: "";
+        height: 50%;
+        width: 50%;
+        border-radius: 50%;
+        display: block;
+        transition: background-color, box-shadow, border, 0.15s ease-in-out;
+        background-color: var(--color);
+        box-shadow: 0 0 150px var(--color), 0 0 50px var(--color),
+                    inset 0 0 15px rgba(0,0,0,0.05);
+        border: solid 3px var(--border-color);
+    }
+    .toggle--glowing-3d__button.active::after
+    {
+        --color: #5ce73a;
+        --border-color: #33931c;
+    }`,
+            js:
+`[...document.getElementsByClassName("toggle--glowing-3d__button")]
+.forEach((button)=>{
+    button.addEventListener("click",()=>{
+        button.classList.toggle("active");
+    });
+});`
+        }
     }]
 }

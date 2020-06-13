@@ -49,7 +49,14 @@ export default {
             viewSlidetoggle.classList.remove("dark");
             componentSlide.style.setProperty("--bg-color","#333");
         }
-    })
+    });
+
+    //3d glowing toggle js
+    [...document.getElementsByClassName("toggle--glowing-3d__button")].forEach((button)=>{
+      button.addEventListener("click",()=>{
+        button.classList.toggle("active");
+      });
+    });
   }
 }
 </script>
