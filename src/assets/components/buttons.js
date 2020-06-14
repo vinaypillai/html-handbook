@@ -433,5 +433,147 @@ export default {
     }
 }`
         }
-    }]
+    },
+    {
+      name:'button--click-particles',
+      color:'#92F6A2',
+      preview:`<div class="button--particles" style="--max-particles:8;"><div class="particle" style="--counter:0"></div><div class="particle" style="--counter:1"></div><div class="particle" style="--counter:2"></div><div class="particle" style="--counter:3"></div><div class="particle" style="--counter:4"></div><div class="particle" style="--counter:5"></div><div class="particle" style="--counter:6"></div><div class="particle" style="--counter:7"></div><button>Click Me</button></div>`,
+      code:{
+        html:
+`<div class="button--particles" style="--max-particles:8;">
+    <div class="particle" style="--counter:0"></div>
+    <div class="particle" style="--counter:1"></div>
+    <div class="particle" style="--counter:2"></div>
+    <div class="particle" style="--counter:3"></div>
+    <div class="particle" style="--counter:4"></div>
+    <div class="particle" style="--counter:5"></div>
+    <div class="particle" style="--counter:6"></div>
+    <div class="particle" style="--counter:7"></div>
+    <button>Click Me</button>
+</div>`,
+        css:
+`@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+body {
+  background-color: #92F6A2;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.button--particles{
+  --diameter: 150px;
+  --color: #999;
+  position: relative;
+  border: solid var(--color) 2px;
+  height: var(--diameter);
+  width: var(--diameter);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;;
+  font-size: 25px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transform: box-shadow 0.15s ease-in-out;
+  letter-spacing: 1px;
+}
+.button--particles button {
+  all: unset;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color);
+  transform: rotate(0deg);
+  transition: color 0.15s ease-in-out;
+}
+.button--particles button:hover{
+  color: #92F6A2;
+}
+.button--particles.active button{
+  transform: rotate(360deg);
+  transition: transform 0.25s ease-in-out;
+}
+.button--particles button::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background-color: var(--color);
+  opacity: 0;
+  z-index: -1;
+  transition: width, height,opacity, 0.15s ease-in-out;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.3); 
+}
+.button--particles button:hover::after{
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+.button--particles button:active::after{
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.4); 
+}
+.button--particles .particle{
+  --width: 10px;
+  --deg: calc(360deg / var(--max-particles) * var(--counter));
+  position: absolute;
+  height: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  width: var(--width);
+  left: calc(50% - var(--width) / 2);
+  transform: rotate(var(--deg));
+}
+.button--particles .particle::after{
+  content: "";
+  --height: 25px;
+  background-color: var(--color);
+  height: 0;
+  bottom: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-radius: var(--width);
+}
+.button--particles.active .particle::after{
+  animation: button__particle ease-in-out 0.25s;
+}
+@keyframes button__particle{
+  0%{
+    bottom: 100%;
+    height: 0;
+    opacity: 1;
+  }
+  50%{
+    height: var(--height);
+    opacity: 0.75;
+  }
+  100%{
+    bottom: calc(130% + var(--height));
+    height: 0;
+    opacity: 0;
+  }
+}`,
+        js:
+`[...document.getElementsByClassName("button--particles")]
+  .forEach((button)=>{
+    button.addEventListener("click",()=>{
+      button.classList.add("active");
+      setTimeout(()=>{
+        button.classList.remove("active");
+      }, 250);
+    })
+  });`
+      }
+    }
+    ]
+
 }

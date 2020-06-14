@@ -47,6 +47,15 @@ export default {
       }, 2000);
     });
   });
+  [...document.getElementsByClassName("button--particles")]
+  .forEach((button)=>{
+    button.addEventListener("click",()=>{
+      button.classList.add("active");
+      setTimeout(()=>{
+        button.classList.remove("active");
+      }, 250);
+    })
+  });
   }
 }
 </script>
