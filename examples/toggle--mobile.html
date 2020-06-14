@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body{
+            background-color: #2EC27C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+
+        }
+        .toggle--mobile{
+            --width:4em;
+            --color:#00ff76;
+            width: var(--width);
+            height: calc(var(--width) / 2);
+            border-radius: 10em;
+            background-color: #FFF;
+            border: solid 2px #eee;
+            position: relative;
+            cursor: pointer;
+            transition: background-color,border-color, 0.15s ease-in-out;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .toggle--mobile::after{
+            content: "";
+            display: block;
+            position: absolute;
+            background-color: #FFF;
+            width: calc(var(--width) * 0.48);
+            height: calc(var(--width) * 0.48);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+            left: 0;
+            top: calc(var(--width) * 0.02);
+            transition: left 0.15s ease-in-out;
+        }
+        .toggle--mobile.active{
+            background-color: var(--color);
+            border-color: var(--color);
+        }
+        .toggle--mobile.active::after{
+            left: calc(100% - var(--width) * 0.48);
+        }
+    </style>
+</head>
+<body>
+<div class="toggle--mobile"></div>
+<script type="text/javascript">
+    [...document.getElementsByClassName("toggle--mobile")].forEach((toggle)=>{
+        toggle.addEventListener("click",()=>{
+            toggle.classList.toggle("active"); 
+        });
+    });
+</script>
+</body>
+</html>

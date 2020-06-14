@@ -53,10 +53,22 @@ export default {
 
     //3d glowing toggle js
     [...document.getElementsByClassName("toggle--glowing-3d__button")].forEach((button)=>{
-      button.addEventListener("click",()=>{
-        button.classList.toggle("active");
-      });
+        button.addEventListener("click",()=>{
+            button.classList.toggle("active");
+        });
     });
+    // Toggle mobile js
+    [...document.getElementsByClassName("toggle--mobile")].forEach((toggle)=>{
+        toggle.addEventListener("click",()=>{
+            toggle.classList.toggle("active"); 
+        });
+    });
+    // Toggle bars js
+    [...document.getElementsByClassName("toggle--bars")].forEach((toggle)=>{
+        toggle.addEventListener("click",()=>{
+            toggle.classList.toggle("active");
+        })
+    })
   }
 }
 </script>

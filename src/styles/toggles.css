@@ -82,68 +82,130 @@
 
 /*3d glowing toggle*/
 
-.toggle--glowing-3d
-    {
-        all: unset;
-        background-color: #222;
-        height: 150px;
-        width: 150px;
-        border-radius: 50%;
-        box-shadow: 0 0 15px #111;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 4px solid #222;
-        box-shadow: 0 -15px 15px rgba(255,255,255,0.05), 
-                    inset 0 -15px 15px rgba(255,255,255,0.05),
-                    0 15px 15px rgba(0,0,0,0.05),
-                    inset 0 15px 15px rgba(0,0,0,0.05);
-    }
+.toggle--glowing-3d {
+    all: unset;
+    background-color: #222;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #222;
+    box-shadow: 0 -15px 15px rgba(255,255,255,0.05), 
+                inset 0 -15px 15px rgba(255,255,255,0.05),
+                0 15px 15px rgba(0,0,0,0.05),
+                inset 0 15px 15px rgba(0,0,0,0.05);
+}
 
-    .toggle--glowing-3d__button
-    {
-        all: unset;
-        background-color: #222;
-        height: 120px;
-        width: 120px;
-        border-radius: 50%;
-        box-shadow: 0 0 15px #111;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        border: 4px solid #272727;
-        box-shadow: 0 -15px 20px rgba(255,255,255,0.05),
-                    inset 0 -15px 20px rgba(0,0,0,0.05),
-                    0 15px 20px rgba(0,0,0,0.05),
-                    inset 0 15px 20px rgba(255,255,255,0.05);
-    }
+.toggle--glowing-3d__button {
+    all: unset;
+    background-color: #222;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 4px solid #272727;
+    box-shadow: 0 -15px 20px rgba(255,255,255,0.05),
+                inset 0 -15px 20px rgba(0,0,0,0.05),
+                0 15px 20px rgba(0,0,0,0.05),
+                inset 0 15px 20px rgba(255,255,255,0.05);
+}
 
-    .toggle--glowing-3d__button.active{
-        border: 2px solid #222;
-        box-shadow: 0 -15px 20px rgba(255,255,255,0.05), 
-                    inset 0 -15px 20px rgba(255,255,255,0.05),
-                    0 15px 20px rgba(0,0,0,0.05),
-                    inset 0 15px 20px rgba(0,0,0,0.05);
-    }
+.toggle--glowing-3d__button.active {
+    border: 2px solid #222;
+    box-shadow: 0 -15px 20px rgba(255,255,255,0.05), 
+                inset 0 -15px 20px rgba(255,255,255,0.05),
+                0 15px 20px rgba(0,0,0,0.05),
+                inset 0 15px 20px rgba(0,0,0,0.05);
+}
 
-    .toggle--glowing-3d__button::after
-    {
-        --color: #ce1c3e;
-        --border-color: #7f1025;
-        content: "";
-        height: 50%;
-        width: 50%;
-        border-radius: 50%;
-        display: block;
-        transition: background-color, box-shadow, border, 0.15s ease-in-out;
-        background-color: var(--color);
-        box-shadow: 0 0 150px var(--color), 0 0 50px var(--color),
-                    inset 0 0 15px rgba(0,0,0,0.05);
-        border: solid 3px var(--border-color);
-    }
-    .toggle--glowing-3d__button.active::after
-    {
-        --color: #5ce73a;
-        --border-color: #33931c;
-    }
+.toggle--glowing-3d__button::after {
+    --color: #ce1c3e;
+    --border-color: #7f1025;
+    content: "";
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+    display: block;
+    transition: background-color, box-shadow, border, 0.15s ease-in-out;
+    background-color: var(--color);
+    box-shadow: 0 0 150px var(--color), 0 0 50px var(--color),
+                inset 0 0 15px rgba(0,0,0,0.05);
+    border: solid 3px var(--border-color);
+}
+.toggle--glowing-3d__button.active::after {
+    --color: #5ce73a;
+    --border-color: #33931c;
+}
+/*Toggle mobile*/
+.toggle--mobile{
+    --width:4em;
+    --color:#00ff76;
+    width: var(--width);
+    height: calc(var(--width) / 2);
+    border-radius: 10em;
+    background-color: #FFF;
+    border: solid 2px #eee;
+    position: relative;
+    cursor: pointer;
+    transition: background-color,border-color, 0.15s ease-in-out;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.toggle--mobile::after{
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #FFF;
+    width: calc(var(--width) * 0.48);
+    height: calc(var(--width) * 0.48);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+    left: 0;
+    top: calc(var(--width) * 0.02);
+    transition: left 0.15s ease-in-out;
+}
+.toggle--mobile.active{
+    background-color: var(--color);
+    border-color: var(--color);
+}
+.toggle--mobile.active::after{
+    left: calc(100% - var(--width) * 0.48);
+}
+/*Toggle bars*/
+.toggle--bars{
+    --width: 3em;
+    width: var(--width);
+    height: calc(var(--width) * 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.toggle--bars div{
+    background-color: #FFF;
+    width: 100%;
+    height: calc(var(--width) / 5);
+    position: relative;
+    transition: top, transform, opacity, 0.3s ease-in-out;
+    top: 0;
+    opacity: 1;
+}
+.toggle--bars.active div{
+    opacity: 0;
+}
+.toggle--bars.active div:first-child{
+    transform: rotate(135deg);
+    top: calc(var(--width) / 2.857);
+    opacity: 1; 
+}
+.toggle--bars.active div:last-child{
+    transform: rotate(-135deg);
+    top:  calc(var(--width) / -2.857);
+    opacity: 1;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body{
+            background-color: #E1204F;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .toggle--bars{
+            --width: 3em;
+            width: var(--width);
+            height: calc(var(--width) * 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .toggle--bars div{
+            background-color: #FFF;
+            width: 100%;
+            height: calc(var(--width) / 5);
+            position: relative;
+            transition: top, transform, opacity, 0.3s ease-in-out;
+            top: 0;
+            opacity: 1;
+        }
+        .toggle--bars.active div{
+            opacity: 0;
+        }
+        .toggle--bars.active div:first-child{
+            transform: rotate(135deg);
+            top: calc(var(--width) / 2.857);
+            opacity: 1; 
+        }
+        .toggle--bars.active div:last-child{
+            transform: rotate(-135deg);
+            top:  calc(var(--width) / -2.857);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle--bars">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script type="text/javascript">
+        [...document.getElementsByClassName("toggle--bars")].forEach((toggle)=>{
+            toggle.addEventListener("click",()=>{
+                toggle.classList.toggle("active");
+            })
+        })
+    </script>
+</body>
+</html>
