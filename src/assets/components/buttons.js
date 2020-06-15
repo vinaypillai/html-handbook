@@ -309,6 +309,7 @@ export default {
     z-index: 1;
     transform: translateZ(0px);
     overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black)
 }
 .button--fluid button{
     all: unset;
@@ -455,6 +456,7 @@ export default {
 `.button--particles{
   --diameter: 150px;
   --color: #fff;
+  --alt-color: #0E73C5;
   position: relative;
   border: solid var(--color) 2px;
   height: var(--diameter);
@@ -481,11 +483,13 @@ export default {
   align-items: center;
   justify-content: center;
   color: var(--color);
+  -webkit-text-fill-color: var(--color);
   transform: rotate(0deg);
   transition: color 0.15s ease-in-out;
 }
 .button--particles button:hover{
-  color: #0E73C5;
+  color: var(--alt-color);
+  -webkit-text-fill-color: var(--alt-color);
 }
 .button--particles.active button{
   transform: rotate(360deg);
@@ -500,13 +504,17 @@ export default {
   background-color: var(--color);
   opacity: 0;
   z-index: -1;
-  transition: width, height,opacity, 0.15s ease-in-out;
+  transition: width, height,opacity,left, top, 0.15s ease-in-out;
   box-shadow: inset 0 0 10px rgba(255,255,255,0.3); 
+  left: 50%;
+  top: 50%;
 }
 .button--particles button:hover::after{
   width: 100%;
   height: 100%;
   opacity: 1;
+  left: 0;
+  top: 0;
 }
 .button--particles button:active::after{
   box-shadow: inset 0 0 15px rgba(0,0,0,0.4); 
