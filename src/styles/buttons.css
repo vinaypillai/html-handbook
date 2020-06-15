@@ -352,10 +352,9 @@
 }
 
 /*Button Particle Click*/
-
 .button--particles{
   --diameter: 150px;
-  --color: #999;
+  --color: #fff;
   position: relative;
   border: solid var(--color) 2px;
   height: var(--diameter);
@@ -386,7 +385,7 @@
   transition: color 0.15s ease-in-out;
 }
 .button--particles button:hover{
-  color: #92F6A2;
+  color: #0E73C5;
 }
 .button--particles.active button{
   transform: rotate(360deg);

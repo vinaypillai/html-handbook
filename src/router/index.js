@@ -8,22 +8,34 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta:{
+      title:'HTML Handbook'
+    }
   },
   {
     path: '/spinners/',
     name: 'Spinners',
-    component: ()=> import('../views/Spinners.vue')
+    component: ()=> import('../views/Spinners.vue'),
+    meta:{
+      title:'Spinners | HTML Handbook'
+    }
   },
   {
     path: '/buttons/',
     name: 'Buttons',
-    component: ()=> import('../views/Buttons.vue')
+    component: ()=> import('../views/Buttons.vue'),
+    meta:{
+      title:'Buttons | HTML Handbook'
+    }
   },
   {
     path: '/toggles/',
     name: 'Toggles',
-    component: ()=> import('../views/Toggles.vue')
+    component: ()=> import('../views/Toggles.vue'),
+    meta:{
+      title:'Toggle | HTML Handbook'
+    }
   },
 ]
 
@@ -33,4 +45,8 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title || "HTML Handbook";
+  next();
+});
 export default router

@@ -436,7 +436,7 @@ export default {
     },
     {
       name:'button--click-particles',
-      color:'#92F6A2',
+      color:'#0E73C5',
       preview:`<div class="button--particles" style="--max-particles:8;"><div class="particle" style="--counter:0"></div><div class="particle" style="--counter:1"></div><div class="particle" style="--counter:2"></div><div class="particle" style="--counter:3"></div><div class="particle" style="--counter:4"></div><div class="particle" style="--counter:5"></div><div class="particle" style="--counter:6"></div><div class="particle" style="--counter:7"></div><button>Click Me</button></div>`,
       code:{
         html:
@@ -452,19 +452,9 @@ export default {
     <button>Click Me</button>
 </div>`,
         css:
-`@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
-body {
-  background-color: #92F6A2;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-.button--particles{
+`.button--particles{
   --diameter: 150px;
-  --color: #999;
+  --color: #fff;
   position: relative;
   border: solid var(--color) 2px;
   height: var(--diameter);
@@ -495,7 +485,7 @@ body {
   transition: color 0.15s ease-in-out;
 }
 .button--particles button:hover{
-  color: #92F6A2;
+  color: #0E73C5;
 }
 .button--particles.active button{
   transform: rotate(360deg);
