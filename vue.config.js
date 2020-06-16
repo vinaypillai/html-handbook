@@ -6,7 +6,8 @@ module.exports = {
         '/',
         '/buttons',
         '/spinners',
-        '/toggles'
+        '/toggles',
+        '/inputs'
       ],
       useRenderEvent: true,
       headless: true,

@@ -129,8 +129,8 @@
     --color: #ce1c3e;
     --border-color: #7f1025;
     content: "";
-    height: 50%;
     width: 50%;
+    padding-bottom: 50%;
     border-radius: 50%;
     display: block;
     transition: background-color, box-shadow, border, 0.15s ease-in-out;

@@ -37,6 +37,14 @@ Vue.use(VueRouter)
       title:'Toggle | HTML Handbook'
     }
   },
+  {
+    path: '/inputs/',
+    name: 'Inputs',
+    component: ()=> import('../views/Inputs.vue'),
+    meta:{
+      title:'Input | HTML Handbook'
+    }
+  },
 ]
 
 const router = new VueRouter({
