@@ -309,6 +309,7 @@ export default {
     z-index: 1;
     transform: translateZ(0px);
     overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black)
 }
 .button--fluid button{
     all: unset;
@@ -436,7 +437,7 @@ export default {
     },
     {
       name:'button--click-particles',
-      color:'#92F6A2',
+      color:'#0E73C5',
       preview:`<div class="button--particles" style="--max-particles:8;"><div class="particle" style="--counter:0"></div><div class="particle" style="--counter:1"></div><div class="particle" style="--counter:2"></div><div class="particle" style="--counter:3"></div><div class="particle" style="--counter:4"></div><div class="particle" style="--counter:5"></div><div class="particle" style="--counter:6"></div><div class="particle" style="--counter:7"></div><button>Click Me</button></div>`,
       code:{
         html:
@@ -452,19 +453,10 @@ export default {
     <button>Click Me</button>
 </div>`,
         css:
-`@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
-body {
-  background-color: #92F6A2;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-.button--particles{
+`.button--particles{
   --diameter: 150px;
-  --color: #999;
+  --color: #fff;
+  --alt-color: #0E73C5;
   position: relative;
   border: solid var(--color) 2px;
   height: var(--diameter);
@@ -491,11 +483,13 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--color);
+  -webkit-text-fill-color: var(--color);
   transform: rotate(0deg);
   transition: color 0.15s ease-in-out;
 }
 .button--particles button:hover{
-  color: #92F6A2;
+  color: var(--alt-color);
+  -webkit-text-fill-color: var(--alt-color);
 }
 .button--particles.active button{
   transform: rotate(360deg);
@@ -510,13 +504,17 @@ body {
   background-color: var(--color);
   opacity: 0;
   z-index: -1;
-  transition: width, height,opacity, 0.15s ease-in-out;
+  transition: width, height,opacity,left, top, 0.15s ease-in-out;
   box-shadow: inset 0 0 10px rgba(255,255,255,0.3); 
+  left: 50%;
+  top: 50%;
 }
 .button--particles button:hover::after{
   width: 100%;
   height: 100%;
   opacity: 1;
+  left: 0;
+  top: 0;
 }
 .button--particles button:active::after{
   box-shadow: inset 0 0 15px rgba(0,0,0,0.4); 
