@@ -278,5 +278,80 @@ toggle.addEventListener("click",function(){
     });
 });`
         }
+    },
+    {
+        name:"toggle--play",
+        color:"#641585",
+        preview:`<div class="toggle--play"><div></div><div></div></div>`,
+        code:{
+            html:
+`<div class="toggle--play">
+    <div></div>
+    <div></div>
+</div>`,
+            css:
+`.toggle--play{
+    width: 5em;
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.toggle--play div{
+    background-color: #fff;
+    width: 2.5em;
+    height: 5em;
+    position: relative;
+    transition: left, height, width, 0.3s ease-in-out;
+    left: 0;
+}
+.toggle--play:not(.paused) div:first-child{
+    height: 2.5em;
+}
+.toggle--play:not(.paused) div:last-child{
+    height: 0;
+}
+.toggle--play.paused div:first-child{
+    left: -0.5em;
+    width: 2em;
+}
+.toggle--play.paused div:last-child{
+    left: 0.5em;
+    width: 2em;
+}
+.toggle--play div::before,
+.toggle--play div::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    border-left: 2.5em solid #fff;
+    transition: border-top, border-left, border-bottom, top, bottom, 0.3s ease-in-out;
+}
+.toggle--play div::before{
+    border-top: 1.25em solid transparent;
+    top: -1.25em;
+}
+.toggle--play div::after{
+    bottom: -1.25em;
+    border-bottom: 1.25em solid transparent;
+}
+.toggle--play.paused div::before{
+    border-top: 0 solid transparent;
+    top: 0;
+    border-left-width: 2em;
+}
+.toggle--play.paused div::after{
+    border-bottom: 0 solid transparent;
+    bottom: 0;
+    border-left-width: 2em;
+}`,
+            js:
+`[...document.getElementsByClassName("toggle--play")].forEach((toggle)=>{
+    toggle.addEventListener("click", ()=>{
+        toggle.classList.toggle("paused");
+    });
+});`
+        }
     }]
 }

@@ -14,8 +14,7 @@
 			padding: 0;
 		}
 		
-		.toggle--pause-play-wrapper
-		{
+		.toggle--play{
 			width: 5em;
 			height: 5em;
 			display: flex;
@@ -23,133 +22,66 @@
 			align-items: center;
 			cursor: pointer;
 		}
-
-		.toggle--play
-		{
+		.toggle--play div{
 			background-color: #fff;
 			width: 2.5em;
 			height: 5em;
 			position: relative;
-		}
-
-		.toggle--play-left
-		{
-			margin-right: 0;
-			transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out;
-		}
-
-		.toggle--play-left::before
-		{
-			content: "";
-			position: absolute;
-			top: 0;
+			transition: left, height, width, 0.3s ease-in-out;
 			left: 0;
-			border-top: 1.25em solid #641585;
-			border-left: 2.5em solid #fff;
-			transition: border-top 0.3s ease-in-out, border-left 0.3s ease-in-out;
 		}
-
-		.toggle--play-left::after
-		{
-			content: "";
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			border-bottom: 1.25em solid #641585;
-			border-left: 2.5em solid #fff;
-			transition: border-bottom 0.3s ease-in-out, border-left 0.3s ease-in-out;
-		}
-
-		.toggle--play-right
-		{
-			margin-left: 0;
-			transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
+		.toggle--play:not(.paused) div:first-child{
 			height: 2.5em;
 		}
-
-		.toggle--play-right::before
-		{
+		.toggle--play:not(.paused) div:last-child{
+			height: 0;
+		}
+		.toggle--play.paused div:first-child{
+			left: -0.5em;
+			width: 2em;
+		}
+		.toggle--play.paused div:last-child{
+			left: 0.5em;
+			width: 2em;
+		}
+		.toggle--play div::before,
+		.toggle--play div::after{
 			content: "";
 			position: absolute;
+			left: 0;
+			border-left: 2.5em solid #fff;
+			transition: border-top, border-left, border-bottom, top, bottom, 0.3s ease-in-out;
+		}
+		.toggle--play div::before{
+			border-top: 1.25em solid transparent;
+			top: -1.25em;
+		}
+		.toggle--play div::after{
+			bottom: -1.25em;
+			border-bottom: 1.25em solid transparent;
+		}
+		.toggle--play.paused div::before{
+			border-top: 0 solid transparent;
 			top: 0;
-			left: 0;
-			border-top: 1.25em solid #641585;
-			border-left: 2.5em solid #fff;
-			transition: border-top 0.3s ease-in-out, border-left 0.3s ease-in-out;
+			border-left-width: 2em;
 		}
-
-		.toggle--play-right::after
-		{
-			content: "";
-			position: absolute;
+		.toggle--play.paused div::after{
+			border-bottom: 0 solid transparent;
 			bottom: 0;
-			left: 0;
-			border-bottom: 1.25em solid #641585;
-			border-left: 2.5em solid #fff;
-			transition: border-bottom 0.3s ease-in-out, border-left 0.3s ease-in-out;
+			border-left-width: 2em;
 		}
-
-		.toggle--pause-play-wrapper.paused > .toggle--play-left
-		{
-			margin-right: 0.5em;
-			width: 2em;
-		}
-
-		.toggle--pause-play-wrapper.paused > .toggle--play-right
-		{
-			margin-left: 0.5em;
-			width: 2em;
-			height: 5em;
-		}
-
-		.toggle--pause-play-wrapper.paused > .toggle--play-left::before
-		{
-			border-top: 0 solid #641585;
-			border-left: 2em solid #fff;
-		}
-
-		.toggle--pause-play-wrapper.paused > .toggle--play-left::after
-		{
-			border-bottom: 0 solid #641585;
-			border-left: 2em solid #fff;
-		}
-
-		.toggle--pause-play-wrapper.paused > .toggle--play-right::before
-		{
-			border-top: 0 solid #641585;
-			border-left: 2em solid #fff;
-		}
-
-		.toggle--pause-play-wrapper.paused > .toggle--play-right::after
-		{
-			border-bottom: 0 solid #641585;
-			border-left: 2em solid #fff;
-		}
-
-
 	</style>
 </head>
 <body>
-	<div class="toggle--pause-play-wrapper">
-		<div class="toggle--play-left toggle--play"></div>
-		<div class="toggle--play-right toggle--play"></div>
+	<div class="toggle--play">
+		<div></div>
+		<div></div>
 	</div>
 	<script type="text/javascript">
-		let playPauseButton = document.getElementsByClassName("toggle--pause-play-wrapper")[0];
-		let clicked = 0;
-
-		playPauseButton.addEventListener("click", function()
-		{
-			if(!clicked)
-			{
-				playPauseButton.classList.add("paused");
-				clicked = 1;
-			}
-			else
-			{
-				playPauseButton.classList.remove("paused");
-				clicked = 0;
-			}
+		[...document.getElementsByClassName("toggle--play")].forEach((toggle)=>{
+			toggle.addEventListener("click", ()=>{
+				toggle.classList.toggle("paused");
+			});
 		});
 	</script>
 </body>

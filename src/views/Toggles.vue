@@ -67,8 +67,14 @@ export default {
     [...document.getElementsByClassName("toggle--bars")].forEach((toggle)=>{
         toggle.addEventListener("click",()=>{
             toggle.classList.toggle("active");
-        })
-    })
+        });
+    });
+    // Toggle play js
+    [...document.getElementsByClassName("toggle--play")].forEach((toggle)=>{
+        toggle.addEventListener("click", ()=>{
+            toggle.classList.toggle("paused");
+        });
+    });
   }
 }
 </script>
