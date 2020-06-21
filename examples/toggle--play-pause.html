@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body
+		{
+			background-color: #641585;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.toggle--pause-play-wrapper
+		{
+			width: 5em;
+			height: 5em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+		}
+
+		.toggle--play
+		{
+			background-color: #fff;
+			width: 2.5em;
+			height: 5em;
+			position: relative;
+		}
+
+		.toggle--play-left
+		{
+			margin-right: 0;
+			transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out;
+		}
+
+		.toggle--play-left::before
+		{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-top: 1.25em solid #641585;
+			border-left: 2.5em solid #fff;
+			transition: border-top 0.3s ease-in-out, border-left 0.3s ease-in-out;
+		}
+
+		.toggle--play-left::after
+		{
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			border-bottom: 1.25em solid #641585;
+			border-left: 2.5em solid #fff;
+			transition: border-bottom 0.3s ease-in-out, border-left 0.3s ease-in-out;
+		}
+
+		.toggle--play-right
+		{
+			margin-left: 0;
+			transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
+			height: 2.5em;
+		}
+
+		.toggle--play-right::before
+		{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-top: 1.25em solid #641585;
+			border-left: 2.5em solid #fff;
+			transition: border-top 0.3s ease-in-out, border-left 0.3s ease-in-out;
+		}
+
+		.toggle--play-right::after
+		{
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			border-bottom: 1.25em solid #641585;
+			border-left: 2.5em solid #fff;
+			transition: border-bottom 0.3s ease-in-out, border-left 0.3s ease-in-out;
+		}
+
+		.toggle--pause-play-wrapper.paused > .toggle--play-left
+		{
+			margin-right: 0.5em;
+			width: 2em;
+		}
+
+		.toggle--pause-play-wrapper.paused > .toggle--play-right
+		{
+			margin-left: 0.5em;
+			width: 2em;
+			height: 5em;
+		}
+
+		.toggle--pause-play-wrapper.paused > .toggle--play-left::before
+		{
+			border-top: 0 solid #641585;
+			border-left: 2em solid #fff;
+		}
+
+		.toggle--pause-play-wrapper.paused > .toggle--play-left::after
+		{
+			border-bottom: 0 solid #641585;
+			border-left: 2em solid #fff;
+		}
+
+		.toggle--pause-play-wrapper.paused > .toggle--play-right::before
+		{
+			border-top: 0 solid #641585;
+			border-left: 2em solid #fff;
+		}
+
+		.toggle--pause-play-wrapper.paused > .toggle--play-right::after
+		{
+			border-bottom: 0 solid #641585;
+			border-left: 2em solid #fff;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="toggle--pause-play-wrapper">
+		<div class="toggle--play-left toggle--play"></div>
+		<div class="toggle--play-right toggle--play"></div>
+	</div>
+	<script type="text/javascript">
+		let playPauseButton = document.getElementsByClassName("toggle--pause-play-wrapper")[0];
+		let clicked = 0;
+
+		playPauseButton.addEventListener("click", function()
+		{
+			if(!clicked)
+			{
+				playPauseButton.classList.add("paused");
+				clicked = 1;
+			}
+			else
+			{
+				playPauseButton.classList.remove("paused");
+				clicked = 0;
+			}
+		});
+	</script>
+</body>
+</html>
