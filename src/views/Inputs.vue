@@ -59,4 +59,3 @@ export default {
 }
 </script>
 <style type="text/css" src="@/styles/inputs.css"></style>
-<style type="text/css" src="@/styles/general.css"></style>

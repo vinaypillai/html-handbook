@@ -91,4 +91,3 @@ export default {
 }
 </script>
 <style type="text/css" src="@/styles/toggles.css"></style>
-<style type="text/css" src="@/styles/general.css"></style>

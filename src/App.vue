@@ -83,6 +83,8 @@
             panel.style.setProperty("--counter", panel.dataset.counter);
             panel.addEventListener("click",()=>{
                 this.browse = false
+                console.log(centerPanel)
+                console.log(this.$refs);
                 const centerPanel = this.$refs["center-panel"];
                 const currentPanel = panel.dataset.counter;
                 centerPanel.style.setProperty("--current-panel",currentPanel);
@@ -106,6 +108,7 @@
     }
   }
 </script>
+<style type="text/css" src="@/styles/general.css"></style>
 <style lang="scss">
 body{
   padding: 0;

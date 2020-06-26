@@ -49,4 +49,3 @@ export default {
 }
 </script>
 <style type="text/css" src="@/styles/spinners.css"></style>
-<style type="text/css" src="@/styles/general.css"></style>
