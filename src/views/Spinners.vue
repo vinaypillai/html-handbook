@@ -1,6 +1,9 @@
 <template>
   <div class="spinners">
     <carousel>
+        <carousel-slide :style="{'--slide-color':currentSlide.color}" class="title-slide dark">
+          <inline-svg :src="require('@/assets/section-titles/spinners.svg')"></inline-svg>
+        </carousel-slide>
         <component-presentation 
         v-for="spinner in spinners" 
         :key="spinner.name"
@@ -20,6 +23,7 @@
 <script>
 import carousel from "@/components/carousel";
 import codeBlock from "@/components/code-block";
+import carouselSlide from "@/components/carousel-slide";
 import componentPresentation from "@/components/component-presentation";
 import spinners from "@/assets/components/spinners"
 export default {
@@ -32,8 +36,17 @@ export default {
   components: {
     carousel,
     codeBlock,
-    componentPresentation
+    componentPresentation,
+    carouselSlide
+  },
+  computed:{
+    currentSlide(){
+      const navSlides = this.$store.state.navSlides;
+      const currentSlide = navSlides.find((slide)=>slide.to==this.$route.path);
+      return currentSlide;
+    }
   }
 }
 </script>
 <style type="text/css" src="@/styles/spinners.css"></style>
+<style type="text/css" src="@/styles/general.css"></style>

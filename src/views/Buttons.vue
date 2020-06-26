@@ -1,6 +1,9 @@
 <template>
   <div class="buttons">
     <carousel>
+        <carousel-slide :style="{'--slide-color':currentSlide.color}" class="title-slide dark">
+          <inline-svg :src="require('@/assets/section-titles/buttons.svg')"></inline-svg>
+        </carousel-slide>
         <component-presentation 
         v-for="button in buttons" 
         :key="button.name"
@@ -20,6 +23,7 @@
 
 <script>
 import carousel from "@/components/carousel";
+import carouselSlide from "@/components/carousel-slide";
 import codeBlock from "@/components/code-block";
 import componentPresentation from "@/components/component-presentation";
 import buttons from "@/assets/components/buttons"
@@ -33,31 +37,42 @@ export default {
   components: {
     carousel,
     codeBlock,
-    componentPresentation
+    componentPresentation,
+    carouselSlide
+  },
+  computed:{
+    currentSlide(){
+      const navSlides = this.$store.state.navSlides;
+      const currentSlide = navSlides.find((slide)=>slide.to==this.$route.path);
+      return currentSlide;
+    }
   },
   mounted(){
-    // Jumping Color Chaning Button
+    // Jumping Color Changing Button
     [...document.getElementsByClassName("button--jumping-color-change")]
-  .forEach(button => {
-    button.addEventListener("click", function() {
-      button.style.animation = "button--pill-jumping 2s 1 ease-in-out";
+    .forEach(button => {
+      button.addEventListener("click", function() {
+        button.style.animation = "button--pill-jumping 2s 1 ease-in-out";
 
-      setTimeout(function() {
-        button.style.animation = "none";
-      }, 2000);
+        setTimeout(function() {
+          button.style.animation = "none";
+        }, 2000);
+      });
     });
-  });
+    // Button
     [...document.getElementsByClassName("button--particles")]
-  .forEach((button)=>{
-    button.addEventListener("click",()=>{
-      button.classList.add("active");
-      setTimeout(()=>{
-        button.classList.remove("active");
-      }, 250);
+    .forEach((button)=>{
+      button.addEventListener("click",()=>{
+        button.classList.add("active");
+        setTimeout(()=>{
+          button.classList.remove("active");
+        }, 250);
+      });
     });
-  });
+
   }
 }
 </script>
 <style type="text/css" src="@/styles/buttons.css"></style>
+<style type="text/css" src="@/styles/general.css"></style>
 

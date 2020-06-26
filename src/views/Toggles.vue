@@ -1,6 +1,9 @@
 <template>
   <div class="toggles">
     <carousel>
+        <carousel-slide :style="{'--slide-color':currentSlide.color}" class="title-slide dark">
+          <inline-svg :src="require('@/assets/section-titles/toggles.svg')"></inline-svg>
+        </carousel-slide>
         <component-presentation 
         v-for="toggle in toggles" 
         :key="toggle.name"
@@ -20,6 +23,7 @@
 
 <script>
 import carousel from "@/components/carousel";
+import carouselSlide from "@/components/carousel-slide";
 import codeBlock from "@/components/code-block";
 import componentPresentation from "@/components/component-presentation";
 import toggles from "@/assets/components/toggles"
@@ -33,7 +37,15 @@ export default {
   components: {
     carousel,
     codeBlock,
-    componentPresentation
+    componentPresentation,
+    carouselSlide
+  },
+  computed:{
+    currentSlide(){
+      const navSlides = this.$store.state.navSlides;
+      const currentSlide = navSlides.find((slide)=>slide.to==this.$route.path);
+      return currentSlide;
+    }
   },
   mounted(){
     // Slide toggle js
@@ -79,3 +91,4 @@ export default {
 }
 </script>
 <style type="text/css" src="@/styles/toggles.css"></style>
+<style type="text/css" src="@/styles/general.css"></style>
