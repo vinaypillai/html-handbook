@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	body{
+		background-color: #D36024;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		width: 100%;
+	}	
+	.input--checkbox{
+		all: unset;
+		background-color: #D36024;
+		width: 3em;
+		height: 3em;
+		border-radius: 0.5em;
+		position: relative;
+		cursor: pointer;
+		border: 0.2em solid #fff;
+		font-size: 25px;
+		transition: background-color 0.15s ease-in-out;
+		font-size: 15px;
+	}
+	.input--checkbox::before{
+		position: absolute;
+		content:"";
+		background-color: #D36024;
+		top: 5%;
+		left: 5%;
+		height: 0;
+		border-radius: 0.2em;
+		width: 0.4em;
+		display: block;
+		transform: rotate(-45deg);
+		transition: height,top,left, 0.075s ease-in-out 0.1s;
+	}
+	.input--checkbox:checked::before{
+		height: 3.5em;
+		left: 44%;
+		top: -9%;
+	}
+	.input--checkbox::after{
+		position: absolute;
+		content:"";
+		background-color: #D36024;
+		top: 5%;
+		right: 5%;
+		height: 0;
+		border-radius: 0.2em;
+		width: 0.4em;
+		display: block;
+		transform: rotate(45deg);
+		transition: height,top,right, 0.075s ease-in-out 0.3s;
+	}
+	.input--checkbox:checked::after{
+		height: 3.5em;
+		right: 44%;
+		top: -9%;
+	}
+	.input--checkbox:checked{
+		background-color: #fff;
+	}
+</style>
+</head>
+<body>
+	<input type="checkbox" class="input--checkbox">
+</body>
+</html>

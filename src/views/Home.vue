@@ -36,7 +36,7 @@ export default {
         align-items: center;
         font-size: 7vw;
         font-family: 'Lato', sans-serif;
-        font-weight: 200;
+        font-weight: 300;
         text-shadow: 0 0 10px rgba(255,255,255,0.5);
         color: #fff;
     }
