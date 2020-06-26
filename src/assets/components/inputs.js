@@ -40,9 +40,9 @@ export default {
         {
             name:"input--checkbox",
             color: "#D36024";
-            preview: `<input type="checkbox" class="input--checkbox"></input>`;
+            preview: `<input type="checkbox" class="input--checkbox">`;
             code:{
-                html:`<input type="checkbox" class="input--checkbox"></input>`,
+                html:`<input type="checkbox" class="input--checkbox">`,
                 css:
 `   .input--checkbox{
         all: unset;
@@ -96,6 +96,43 @@ export default {
     .input--checkbox:checked{
         background-color: #fff;
     }`
+            }
+        },
+        {
+            name:"input--radio-button"
+            color: "#6BFBCE",
+            preview: `<input id="radio-button" type="radio" name="radio-button"><input id="radio-button" type="radio" name="radio-button"><input id="radio-button" type="radio" name="radio-button">`,
+            code:{
+                html:`<input id="radio-button" type="radio" name="radio-button">
+    <input id="radio-button" type="radio" name="radio-button">
+    <input id="radio-button" type="radio" name="radio-button">`,
+                css:
+`#radio-button{
+            all: unset;
+            position: relative;
+            height: 5em;
+            width: 5em;
+            background-color: #222;
+            border-radius: 2.5em;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        #radio-button::before{
+            content: "";
+            position: absolute;
+            background-color: #fff;
+            left: 50%;
+            top: 50%;
+            height: 4.75em;
+            width: 4.75em;
+            border-radius: 2.375em;
+            transform: translate(-50%,-50%);
+            transition: height,width, 0.15s ease-in-out;
+        }
+        #radio-button:checked::before{
+            height: 2em;
+            width: 2em;
+        }`
             }
         }
     ]
