@@ -170,7 +170,7 @@ body{
 }
 .main-content.browse .center-panel{
     height: 70%;
-    width: 100%;
+    width: 95%;
     position: relative;
 }
 
@@ -193,11 +193,15 @@ body{
 }
 .main-content.browse .content-panel{
     --offset: calc(min(var(--counter) - var(--current-panel), var(--current-panel) - var(--counter)) + var(--max-panels));
+    --offset-float: calc(min(var(--counter) - var(--current-panel-float), var(--current-panel-float) - var(--counter)) + var(--max-panels));
+    --width-gradient: 1;
+    --width: calc(100% * (var(--offset-float) + var(--width-gradient))  / (var(--max-panels) + var(--width-gradient)));
     z-index: var(--offset);
     opacity: var(--opacity, 1);
     position: absolute;
     top: calc(10% * (var(--counter) - var(--current-panel)));
-    width: 100%;
+    width: var(--width);
+    left: calc((100% - var(--width)) / 2);
     height: 100%;
     background-color: var(--bg-color);
     box-shadow: 0 calc(10px * (var(--counter) - var(--current-panel-float))) 30px rgba(0,0,0,0.5),
@@ -220,6 +224,10 @@ body{
     text-transform: uppercase;
     font-size: 1.5em;
     text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.main-content.browse .nextSlideLink,
+.main-content.browse .prevSlideLink{
+    display: none;
 }
 .main-content .nextSlideLink{
     right: min(5%, 2em);
