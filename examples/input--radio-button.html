@@ -15,17 +15,19 @@
 			justify-content: center;
 			align-items: center;
 		}
-		#radio-button{
+		.radio-button{
 			all: unset;
 			position: relative;
 			height: 5em;
 			width: 5em;
+			display: inline-block;
 			background-color: #222;
 			border-radius: 2.5em;
 			cursor: pointer;
 			margin: 0 5px;
+			font-size: 10px;
 		}
-		#radio-button::before{
+		.radio-button::before{
 			content: "";
 			position: absolute;
 			background-color: #6BFBCE;
@@ -37,15 +39,15 @@
 			transform: translate(-50%,-50%);
 			transition: height,width, 0.15s ease-in-out;
 		}
-		#radio-button:checked::before{
+		.radio-button:checked::before{
 			height: 2em;
 			width: 2em;
 		}
 	</style>
 </head>
 <body>
-	<input id="radio-button" type="radio" name="radio-button">
-	<input id="radio-button" type="radio" name="radio-button">
-	<input id="radio-button" type="radio" name="radio-button">
+	<input class="radio-button" type="radio" name="radio-button">
+	<input class="radio-button" type="radio" name="radio-button">
+	<input class="radio-button" type="radio" name="radio-button">
 </body>
 </html>

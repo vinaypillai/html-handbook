@@ -23,6 +23,7 @@
 .input--checkbox{
     all: unset;
     background-color: #D36024;
+    display: block;
     width: 3em;
     height: 3em;
     border-radius: 0.5em;
@@ -72,7 +73,7 @@
 .input--checkbox:checked{
     background-color: #fff;
 }
-#radio-button{
+.radio-button{
     all: unset;
     position: relative;
     height: 5em;
@@ -81,11 +82,13 @@
     border-radius: 2.5em;
     cursor: pointer;
     margin: 0 5px;
+    display: inline-block;
+    font-size: 10px;
 }
-#radio-button::before{
+.radio-button::before{
     content: "";
     position: absolute;
-    background-color: #fff;
+    background-color: #6BFBCE;
     left: 50%;
     top: 50%;
     height: 4.75em;
@@ -94,7 +97,7 @@
     transform: translate(-50%,-50%);
     transition: height,width, 0.15s ease-in-out;
 }
-#radio-button:checked::before{
+.radio-button:checked::before{
     height: 2em;
     width: 2em;
 }

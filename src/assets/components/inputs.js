@@ -39,100 +39,105 @@ export default {
         },
         {
             name:"input--checkbox",
-            color: "#D36024";
-            preview: `<input type="checkbox" class="input--checkbox">`;
+            color: "#D36024",
+            preview: `<input type="checkbox" class="input--checkbox">`,
             code:{
                 html:`<input type="checkbox" class="input--checkbox">`,
                 css:
-`   .input--checkbox{
-        all: unset;
-        background-color: #D36024;
-        width: 3em;
-        height: 3em;
-        border-radius: 0.5em;
-        position: relative;
-        cursor: pointer;
-        border: 0.2em solid #fff;
-        font-size: 25px;
-        transition: background-color 0.15s ease-in-out;
-        font-size: 15px;
-    }
-    .input--checkbox::before{
-        position: absolute;
-        content:"";
-        background-color: #D36024;
-        top: 5%;
-        left: 5%;
-        height: 0;
-        border-radius: 0.2em;
-        width: 0.4em;
-        display: block;
-        transform: rotate(-45deg);
-        transition: height,top,left, 0.075s ease-in-out 0.1s;
-    }
-    .input--checkbox:checked::before{
-        height: 3.5em;
-        left: 44%;
-        top: -9%;
-    }
-    .input--checkbox::after{
-        position: absolute;
-        content:"";
-        background-color: #D36024;
-        top: 5%;
-        right: 5%;
-        height: 0;
-        border-radius: 0.2em;
-        width: 0.4em;
-        display: block;
-        transform: rotate(45deg);
-        transition: height,top,right, 0.075s ease-in-out 0.3s;
-    }
-    .input--checkbox:checked::after{
-        height: 3.5em;
-        right: 44%;
-        top: -9%;
-    }
-    .input--checkbox:checked{
-        background-color: #fff;
-    }`
+`.input--checkbox{
+    all: unset;
+    background-color: #D36024;
+    width: 3em;
+    height: 3em;
+    display: block;
+    border-radius: 0.5em;
+    position: relative;
+    cursor: pointer;
+    border: 0.2em solid #fff;
+    font-size: 25px;
+    transition: background-color 0.15s ease-in-out;
+    font-size: 15px;
+}
+.input--checkbox::before{
+    position: absolute;
+    content:"";
+    background-color: #D36024;
+    top: 5%;
+    left: 5%;
+    height: 0;
+    border-radius: 0.2em;
+    width: 0.4em;
+    display: block;
+    transform: rotate(-45deg);
+    transition: height,top,left, 0.075s ease-in-out 0.1s;
+}
+.input--checkbox:checked::before{
+    height: 3.5em;
+    left: 44%;
+    top: -9%;
+}
+.input--checkbox::after{
+    position: absolute;
+    content:"";
+    background-color: #D36024;
+    top: 5%;
+    right: 5%;
+    height: 0;
+    border-radius: 0.2em;
+    width: 0.4em;
+    display: block;
+    transform: rotate(45deg);
+    transition: height,top,right, 0.075s ease-in-out 0.3s;
+}
+.input--checkbox:checked::after{
+    height: 3.5em;
+    right: 44%;
+    top: -9%;
+}
+.input--checkbox:checked{
+    background-color: #fff;
+}`
             }
         },
         {
-            name:"input--radio-button"
+            name:"input--radio-button",
+            dark: true,
             color: "#6BFBCE",
-            preview: `<input id="radio-button" type="radio" name="radio-button"><input id="radio-button" type="radio" name="radio-button"><input id="radio-button" type="radio" name="radio-button">`,
+            preview: `<input class="radio-button" type="radio" name="radio-button"><input class="radio-button" type="radio" name="radio-button"><input class="radio-button" type="radio" name="radio-button">`,
             code:{
-                html:`<input id="radio-button" type="radio" name="radio-button">
-    <input id="radio-button" type="radio" name="radio-button">
-    <input id="radio-button" type="radio" name="radio-button">`,
+                html:
+`<input class="radio-button" type="radio" name="radio-button">
+<input class="radio-button" type="radio" name="radio-button">
+<input class="radio-button" type="radio" name="radio-button">`,
                 css:
-`#radio-button{
-            all: unset;
-            position: relative;
-            height: 5em;
-            width: 5em;
-            background-color: #222;
-            border-radius: 2.5em;
-            cursor: pointer;
-            margin: 0 5px;
-        }
-        #radio-button::before{
-            content: "";
-            position: absolute;
-            background-color: #fff;
-            left: 50%;
-            top: 50%;
-            height: 4.75em;
-            width: 4.75em;
-            border-radius: 2.375em;
-            transform: translate(-50%,-50%);
-            transition: height,width, 0.15s ease-in-out;
-        }
-        #radio-button:checked::before{
-            height: 2em;
-            width: 2em;
-        }`
+`.radio-button{
+    all: unset;
+    position: relative;
+    height: 5em;
+    width: 5em;
+    background-color: #222;
+    border-radius: 2.5em;
+    cursor: pointer;
+    margin: 0 5px;
+    display: inline-block;
+    font-size: 10px;
+}
+.radio-button::before{
+    content: "";
+    position: absolute;
+    background-color: #6BFBCE;
+    left: 50%;
+    top: 50%;
+    height: 4.75em;
+    width: 4.75em;
+    border-radius: 2.375em;
+    transform: translate(-50%,-50%);
+    transition: height,width, 0.15s ease-in-out;
+}
+.radio-button:checked::before{
+    height: 2em;
+    width: 2em;
+}`
             }
         }
     ]
