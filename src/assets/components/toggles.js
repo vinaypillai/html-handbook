@@ -254,7 +254,9 @@ toggle.addEventListener("click",function(){
     width: 100%;
     height: calc(var(--width) / 5);
     position: relative;
-    transition: top, transform, opacity, 0.3s ease-in-out;
+    transition-property: top, transform, opacity;
+    transition-duration:  0.3s;
+    transition-timing-function: ease-in-out;
     top: 0;
     opacity: 1;
 }
@@ -291,6 +293,7 @@ toggle.addEventListener("click",function(){
 </div>`,
             css:
 `.toggle--play{
+    --tolerance: 0.02em;
     width: 5em;
     height: 5em;
     display: flex;
@@ -303,7 +306,9 @@ toggle.addEventListener("click",function(){
     width: 2.5em;
     height: 5em;
     position: relative;
-    transition: left, height, width, 0.3s ease-in-out;
+    transition-property: left, height, width;
+    transition-duration:  0.3s;
+    transition-timing-function: ease-in-out;
     left: 0;
 }
 .toggle--play:not(.paused) div:first-child{
@@ -326,24 +331,26 @@ toggle.addEventListener("click",function(){
     position: absolute;
     left: 0;
     border-left: 2.5em solid #fff;
-    transition: border-top, border-left, border-bottom, top, bottom, 0.3s ease-in-out;
+    transition-property: border-top, border-left, border-bottom, top, bottom;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
 }
 .toggle--play div::before{
     border-top: 1.25em solid transparent;
-    top: -1.25em;
+    top: calc(-1.25em + var(--tolerance));
 }
 .toggle--play div::after{
-    bottom: -1.25em;
+    bottom: calc(-1.25em + var(--tolerance));
     border-bottom: 1.25em solid transparent;
 }
 .toggle--play.paused div::before{
     border-top: 0 solid transparent;
-    top: 0;
+    top: var(--tolerance);
     border-left-width: 2em;
 }
 .toggle--play.paused div::after{
     border-bottom: 0 solid transparent;
-    bottom: 0;
+    bottom: var(--tolerance);
     border-left-width: 2em;
 }`,
             js:

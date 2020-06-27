@@ -218,7 +218,9 @@ export default {
     color: var(--color);
     -webkit-text-fill-color: var(--color);
     cursor: pointer;
-    transition: color, background-color,-webkit-text-fill-color,border-width, 0.15s ease-in-out;
+    transition-property: color, background-color,-webkit-text-fill-color,border-width;
+    transition-duration:  0.15s;
+    transition-timing-function: ease-in-out;
 }
 .button--flat:hover{
     background-color: var(--color);
@@ -456,7 +458,7 @@ export default {
 `.button--particles{
   --diameter: 150px;
   --color: #fff;
-  --alt-color: #0E73C5;
+  --hover-color: #0E73C5;
   position: relative;
   border: solid var(--color) 2px;
   height: var(--diameter);
@@ -484,12 +486,14 @@ export default {
   justify-content: center;
   color: var(--color);
   -webkit-text-fill-color: var(--color);
+  text-fill-color: var(--color);
   transform: rotate(0deg);
   transition: color 0.15s ease-in-out;
 }
 .button--particles button:hover{
-  color: var(--alt-color);
-  -webkit-text-fill-color: var(--alt-color);
+  color: var(--hover-color);
+  -webkit-text-fill-color: var(--hover-color);
+  text-fill-color: var(--hover-color);
 }
 .button--particles.active button{
   transform: rotate(360deg);
@@ -504,17 +508,19 @@ export default {
   background-color: var(--color);
   opacity: 0;
   z-index: -1;
-  transition: width, height,opacity,left, top, 0.15s ease-in-out;
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.3); 
-  left: 50%;
   top: 50%;
+  left: 50%;
+  transition-property: width, height,opacity, top, left;
+  transition-duration:  0.15s;
+  transition-timing-function: ease-in-out;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.3); 
 }
 .button--particles button:hover::after{
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   opacity: 1;
-  left: 0;
-  top: 0;
 }
 .button--particles button:active::after{
   box-shadow: inset 0 0 15px rgba(0,0,0,0.4); 

@@ -24,7 +24,9 @@
             width: 100%;
             height: calc(var(--width) / 5);
             position: relative;
-            transition: top, transform, opacity, 0.3s ease-in-out;
+            transition-property: top, transform, opacity;
+            transition-duration:  0.3s;
+            transition-timing-function: ease-in-out;
             top: 0;
             opacity: 1;
         }

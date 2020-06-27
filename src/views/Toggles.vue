@@ -2,7 +2,8 @@
   <div class="toggles">
     <carousel>
         <carousel-slide :style="{'--slide-color':currentSlide.color}" class="title-slide dark">
-          <inline-svg :src="require('@/assets/section-titles/toggles.svg')"></inline-svg>
+          <inline-svg :src="require('@/assets/section-titles/toggles.svg')"
+          @loaded="updateSVGPaths()" ref="sectionTitle"></inline-svg>
         </carousel-slide>
         <component-presentation 
         v-for="toggle in toggles" 
@@ -32,6 +33,13 @@ export default {
   data(){
     return {
         "toggles":toggles.data
+    }
+  },
+  methods:{
+    updateSVGPaths(){
+      [...this.$refs['sectionTitle'].$el.getElementsByTagName("path")].forEach((path)=>{
+        path.style.setProperty("--dash",path.getTotalLength());
+      })
     }
   },
   components: {
@@ -91,4 +99,3 @@ export default {
 }
 </script>
 <style type="text/css" src="@/styles/toggles.css"></style>
-<style type="text/css" src="@/styles/general.css"></style>

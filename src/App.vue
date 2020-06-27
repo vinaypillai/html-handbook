@@ -17,10 +17,10 @@
               </router-link>
         </nav>
         <router-link v-if="hasNext" :to="nextSlide.to" class="nextSlideLink">
-            <span v-if="innerWidth>768">{{nextSlide.title}}</span> &gt;&gt;
+            <div><span v-if="innerWidth>768">{{nextSlide.title}}</span> &gt;&gt;</div>
         </router-link>
         <router-link v-if="hasPrev" :to="prevSlide.to" class="prevSlideLink">
-            &lt;&lt; <span v-if="innerWidth>768">{{prevSlide.title}}</span>
+            <div>&lt;&lt; <span v-if="innerWidth>768">{{prevSlide.title}}</span></div>
         </router-link>
   </div>
 </template>
@@ -31,6 +31,9 @@
         browse:false,
         scrollTop:0,
         maxHeight:window.innerHeight,
+        touchPrevY:0,
+        touchMagnifier: 2,
+
       }
     },
     computed:{
@@ -65,24 +68,36 @@
         }
     },
     mounted(){
-      const panels = [...document.getElementsByClassName("content-panel")];
-      const app = document.getElementById("app");
-      app.style.setProperty("--vh",(window.innerHeight/100)+"px");
-      window.addEventListener("resize",()=>{
+        const panels = [...document.getElementsByClassName("content-panel")];
+        const app = document.getElementById("app");
         app.style.setProperty("--vh",(window.innerHeight/100)+"px");
-      });
-      window.addEventListener("wheel",(event)=>{
-          if(this.browse){
-              this.scrollTop+=event.deltaY;
-              this.scrollTop = (this.scrollTop < 0 ) ? 0 : this.scrollTop;
-              this.scrollTop = (this.scrollTop > this.maxHeight ) ? this.maxHeight : this.scrollTop;
-              this.updatePanels(panels);
-          }
-      })
-      panels.forEach((panel)=>{
+        window.addEventListener("resize",()=>{
+            app.style.setProperty("--vh",(window.innerHeight/100)+"px");
+        });
+        window.addEventListener("wheel",(event)=>{
+            if(this.browse){
+                this.scrollSlides(event.deltaY, panels);
+            }
+        })
+        window.addEventListener("touchstart",(event)=>{
+            if(this.browse){
+                this.touchPrevY = event.targetTouches[0].clientY;
+            }
+        })
+        window.addEventListener("touchmove",(event)=>{
+            if(this.browse){
+                const deltaY = this.touchPrevY - event.targetTouches[0].clientY;
+                this.touchPrevY = event.targetTouches[0].clientY;
+                // Scale up swipes by 5
+                this.scrollSlides(this.touchMagnifier * deltaY, panels);
+            }
+        })
+        panels.forEach((panel)=>{
             panel.style.setProperty("--counter", panel.dataset.counter);
             panel.addEventListener("click",()=>{
                 this.browse = false
+                console.log(centerPanel)
+                console.log(this.$refs);
                 const centerPanel = this.$refs["center-panel"];
                 const currentPanel = panel.dataset.counter;
                 centerPanel.style.setProperty("--current-panel",currentPanel);
@@ -90,8 +105,8 @@
                 centerPanel.style.setProperty("--max-slides",panels.length);
                 document.getElementById("browse-toggle").classList.remove("active");
             })
-      })
-      this.updatePanels(panels);
+        })
+        this.updatePanels(panels);
     },
     methods:{
         updatePanels(panels){
@@ -102,10 +117,19 @@
             centerPanel.style.setProperty("--current-panel",currentPanel);
             centerPanel.style.setProperty("--current-panel-float",currentPanelFloat);
             centerPanel.style.setProperty("--max-panels",panels.length);
+        },
+        scrollSlides(deltaY, panels){
+             if(this.browse){
+                this.scrollTop+=deltaY;
+                this.scrollTop = (this.scrollTop < 0 ) ? 0 : this.scrollTop;
+                this.scrollTop = (this.scrollTop > this.maxHeight ) ? this.maxHeight : this.scrollTop;
+                this.updatePanels(panels);
+            }
         }
     }
   }
 </script>
+<style type="text/css" src="@/styles/general.css"></style>
 <style lang="scss">
 body{
   padding: 0;
@@ -167,7 +191,7 @@ body{
 }
 .main-content.browse .center-panel{
     height: 70%;
-    width: 100%;
+    width: 95%;
     position: relative;
 }
 
@@ -190,11 +214,15 @@ body{
 }
 .main-content.browse .content-panel{
     --offset: calc(min(var(--counter) - var(--current-panel), var(--current-panel) - var(--counter)) + var(--max-panels));
+    --offset-float: calc(min(var(--counter) - var(--current-panel-float), var(--current-panel-float) - var(--counter)) + var(--max-panels));
+    --width-gradient: 1;
+    --width: calc(100% * (var(--offset-float) + var(--width-gradient))  / (var(--max-panels) + var(--width-gradient)));
     z-index: var(--offset);
     opacity: var(--opacity, 1);
     position: absolute;
     top: calc(10% * (var(--counter) - var(--current-panel)));
-    width: 100%;
+    width: var(--width);
+    left: calc((100% - var(--width)) / 2);
     height: 100%;
     background-color: var(--bg-color);
     box-shadow: 0 calc(10px * (var(--counter) - var(--current-panel-float))) 30px rgba(0,0,0,0.5),
@@ -217,6 +245,10 @@ body{
     text-transform: uppercase;
     font-size: 1.5em;
     text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.main-content.browse .nextSlideLink,
+.main-content.browse .prevSlideLink{
+    display: none;
 }
 .main-content .nextSlideLink{
     right: min(5%, 2em);

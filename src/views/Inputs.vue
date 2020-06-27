@@ -2,7 +2,8 @@
   <div class="inputs">
     <carousel>
         <carousel-slide :style="{'--slide-color':currentSlide.color}" class="title-slide dark">
-          <inline-svg :src="require('@/assets/section-titles/inputs.svg')"></inline-svg>
+          <inline-svg :src="require('@/assets/section-titles/inputs.svg')"
+          @loaded="updateSVGPaths()" ref="sectionTitle"></inline-svg>
         </carousel-slide>
         <component-presentation 
         v-for="input in inputs" 
@@ -34,6 +35,13 @@ export default {
         "inputs":inputs.data
     }
   },
+  methods:{
+    updateSVGPaths(){
+      [...this.$refs['sectionTitle'].$el.getElementsByTagName("path")].forEach((path)=>{
+        path.style.setProperty("--dash",path.getTotalLength());
+      })
+    }
+  },
   components: {
     carousel,
     codeBlock,
@@ -59,4 +67,3 @@ export default {
 }
 </script>
 <style type="text/css" src="@/styles/inputs.css"></style>
-<style type="text/css" src="@/styles/general.css"></style>

@@ -9,13 +9,14 @@ body {
   padding: 0;
 }
 .spinner--folding-square {
+  --duration: 16s;
   position: absolute;
   top: calc(50% - 50px);
   left: calc(50% - 50px);
   width: 100px;
   height: 100px;
   perspective: 1000px;
-  animation: folding-square-rotate 16s infinite linear;
+  animation: folding-square-rotate var(--duration) infinite linear;
 }
 .spinner--folding-square .folding-square {
   position: absolute;
@@ -29,27 +30,27 @@ body {
 .spinner--folding-square .folding-square:nth-child(1){
   top: 0px;
   left: 0px;
-  animation: folding-square__leading 2s infinite;
+  animation: folding-square__leading calc(var(--duration) / 8) infinite;
 }
 .spinner--folding-square .folding-square:nth-child(2){
   left: 50px;
   top: 0;
-  animation: folding-square2 4s infinite;
+  animation: folding-square2 calc(var(--duration) / 4) infinite;
 }
 .spinner--folding-square .folding-square:nth-child(3){
   left: 0;
   top: 50px;
-  animation: folding-square3 4s infinite;
+  animation: folding-square3 calc(var(--duration) / 4) infinite;
 }
 .spinner--folding-square .folding-square:nth-child(4){
   left: 50px;
   top: 50px;
-  animation: folding-square4 4s infinite;
+  animation: folding-square4 calc(var(--duration) / 4) infinite;
 }
 @keyframes folding-square__leading {
   0%, 100% {
     transform-origin: bottom right;
-    transform: none;
+    transform: rotateX(0deg) rotateY(0deg);
     top: 0;
     left: 0;
   }
@@ -61,39 +62,40 @@ body {
   }
   25% {
     transform-origin: top right;
-    top: 50px;
+    top: 100px;
     left: 0;
-    transform: none;
+    transform: rotateX(180deg);
   }
   49.9999% {
     transform-origin: top right;
-    top: 50px;
+    top: 100px;
     left: 0;
-    transform: rotateY(180deg);
+    transform: rotateX(180deg) rotateY(180deg);
   }
   50% {
-    transform-origin: top left;
-    top: 50px;
-    left: 50px;
-    transform: none;
+    transform-origin: bottom left;
+    top: 0;
+    left: 100px;
+    transform: rotateX(180deg) rotateY(180deg);
   }
   74.9999% {
-    transform-origin: top left;
-    top: 50px;
-    left: 50px;
-    transform: rotateX(180deg);
-  }
-  75% {
     transform-origin: bottom left;
     top: 0;
-    left: 50px;
-    transform: none;
+    left: 100px;
+    transform: rotateX(0deg) rotateY(180deg);
   }
+<<<<<<< HEAD:examples/spinner--flopping-square.html
   99.9999% {
     transform-origin: bottom left;
+  }
+=======
+  75% {
+    transform-origin: bottom right;
+  }
+>>>>>>> 0129a0efb7e06b51d1fdd3847058479743537387:examples/spinner--folding-square.html
     top: 0;
-    left: 50px;
-    transform: rotateY(180deg);
+    left: 0;
+    transform: rotateX(0deg) rotateY(180deg);
   }
 }
 
