@@ -458,6 +458,7 @@ export default {
 `.button--particles{
   --diameter: 150px;
   --color: #fff;
+  --hover-color: #0E73C5;
   position: relative;
   border: solid var(--color) 2px;
   height: var(--diameter);
@@ -484,11 +485,15 @@ export default {
   align-items: center;
   justify-content: center;
   color: var(--color);
+  -webkit-text-fill-color: var(--color);
+  text-fill-color: var(--color);
   transform: rotate(0deg);
   transition: color 0.15s ease-in-out;
 }
 .button--particles button:hover{
-  color: #0E73C5;
+  color: var(--hover-color);
+  -webkit-text-fill-color: var(--hover-color);
+  text-fill-color: var(--hover-color);
 }
 .button--particles.active button{
   transform: rotate(360deg);
@@ -503,12 +508,16 @@ export default {
   background-color: var(--color);
   opacity: 0;
   z-index: -1;
-  transition-property: width, height,opacity;
+  top: 50%;
+  left: 50%;
+  transition-property: width, height,opacity, top, left;
   transition-duration:  0.15s;
   transition-timing-function: ease-in-out;
   box-shadow: inset 0 0 10px rgba(255,255,255,0.3); 
 }
 .button--particles button:hover::after{
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   opacity: 1;
