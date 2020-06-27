@@ -2,7 +2,8 @@
   <div class="buttons">
     <carousel>
         <carousel-slide :style="{'--slide-color':currentSlide.color}" class="title-slide dark">
-          <inline-svg :src="require('@/assets/section-titles/buttons.svg')"></inline-svg>
+          <inline-svg :src="require('@/assets/section-titles/buttons.svg')"
+          @loaded="updateSVGPaths()" ref="sectionTitle"></inline-svg>
         </carousel-slide>
         <component-presentation 
         v-for="button in buttons" 
@@ -32,6 +33,13 @@ export default {
   data(){
     return {
         "buttons":buttons.data
+    }
+  },
+  methods:{
+    updateSVGPaths(){
+      [...this.$refs['sectionTitle'].$el.getElementsByTagName("path")].forEach((path)=>{
+        path.style.setProperty("--dash",path.getTotalLength());
+      })
     }
   },
   components: {

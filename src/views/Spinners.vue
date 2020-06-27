@@ -2,7 +2,8 @@
   <div class="spinners">
     <carousel>
         <carousel-slide :style="{'--slide-color':currentSlide.color}" class="title-slide dark">
-          <inline-svg :src="require('@/assets/section-titles/spinners.svg')"></inline-svg>
+          <inline-svg :src="require('@/assets/section-titles/spinners.svg')"
+          @loaded="updateSVGPaths()" ref="sectionTitle"></inline-svg>
         </carousel-slide>
         <component-presentation 
         v-for="spinner in spinners" 
@@ -31,6 +32,13 @@ export default {
   data(){
     return {
         "spinners":spinners.data
+    }
+  },
+  methods:{
+    updateSVGPaths(){
+      [...this.$refs['sectionTitle'].$el.getElementsByTagName("path")].forEach((path)=>{
+        path.style.setProperty("--dash",path.getTotalLength());
+      })
     }
   },
   components: {
