@@ -5,9 +5,10 @@ import store from './store'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
+import { faChrome, faSafari, faOpera, faFirefox } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faCopy)
+library.add(faCopy, faChrome, faSafari, faOpera, faFirefox )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
