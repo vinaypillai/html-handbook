@@ -19,6 +19,7 @@
 	.input--checkbox{
 		all: unset;
 		background-color: #D36024;
+		display: block;
 		width: 3em;
 		height: 3em;
 		border-radius: 0.5em;
@@ -40,7 +41,10 @@
 		width: 0.4em;
 		display: block;
 		transform: rotate(-45deg);
-		transition: height,top,left, 0.075s ease-in-out 0.1s;
+		transition-property: height,top,left;
+		transition-duration: 0.075s;
+		transition-timing-function:  ease-in-out;
+		transition-delay: 0.1s;
 	}
 	.input--checkbox:checked::before{
 		height: 3.5em;
@@ -58,7 +62,10 @@
 		width: 0.4em;
 		display: block;
 		transform: rotate(45deg);
-		transition: height,top,right, 0.075s ease-in-out 0.3s;
+		transition-property: height,top,right;
+		transition-duration: 0.075s;
+		transition-timing-function:  ease-in-out;
+		transition-delay: 0.3s;
 	}
 	.input--checkbox:checked::after{
 		height: 3.5em;

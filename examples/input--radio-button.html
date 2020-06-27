@@ -37,7 +37,9 @@
 			width: 4.75em;
 			border-radius: 2.375em;
 			transform: translate(-50%,-50%);
-			transition: height,width, 0.15s ease-in-out;
+			transition-property: height,width;
+			transition-duration: 0.15s;
+			transition-timing-function: ease-in-out;
 		}
 		.radio-button:checked::before{
 			height: 2em;

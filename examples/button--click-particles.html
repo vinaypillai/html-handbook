@@ -62,7 +62,9 @@ body {
   background-color: var(--color);
   opacity: 0;
   z-index: -1;
-  transition: width, height,opacity, 0.15s ease-in-out;
+  transition-property: width, height,opacity;
+  transition-duration:  0.15s;
+  transition-timing-function: ease-in-out;
   box-shadow: inset 0 0 10px rgba(255,255,255,0.3); 
 }
 .button--particles button:hover::after{

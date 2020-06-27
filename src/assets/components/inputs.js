@@ -14,7 +14,6 @@ export default {
     opacity: 0.8;
     border-radius: 500px;
     font-size: 20px;
-    color: #333;
     font-weight: 300;
     text-align: left;
     padding: 1em;
@@ -22,6 +21,7 @@ export default {
     transition: opacity 0.15s ease-in-out;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
     min-width: 200px;
+    width: 200px;
     max-width: min(90vw, 90%);
 }
 .input--expand:focus{
@@ -47,9 +47,9 @@ export default {
 `.input--checkbox{
     all: unset;
     background-color: #D36024;
+    display: block;
     width: 3em;
     height: 3em;
-    display: block;
     border-radius: 0.5em;
     position: relative;
     cursor: pointer;
@@ -69,7 +69,10 @@ export default {
     width: 0.4em;
     display: block;
     transform: rotate(-45deg);
-    transition: height,top,left, 0.075s ease-in-out 0.1s;
+    transition-property: height,top,left;
+    transition-duration: 0.075s;
+    transition-timing-function:  ease-in-out;
+    transition-delay: 0.1s;
 }
 .input--checkbox:checked::before{
     height: 3.5em;
@@ -87,7 +90,10 @@ export default {
     width: 0.4em;
     display: block;
     transform: rotate(45deg);
-    transition: height,top,right, 0.075s ease-in-out 0.3s;
+    transition-property: height,top,right;
+    transition-duration: 0.075s;
+    transition-timing-function:  ease-in-out;
+    transition-delay: 0.3s;
 }
 .input--checkbox:checked::after{
     height: 3.5em;
@@ -115,11 +121,11 @@ export default {
     position: relative;
     height: 5em;
     width: 5em;
+    display: inline-block;
     background-color: #222;
     border-radius: 2.5em;
     cursor: pointer;
     margin: 0 5px;
-    display: inline-block;
     font-size: 10px;
 }
 .radio-button::before{
@@ -132,7 +138,9 @@ export default {
     width: 4.75em;
     border-radius: 2.375em;
     transform: translate(-50%,-50%);
-    transition: height,width, 0.15s ease-in-out;
+    transition-property: height,width;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
 }
 .radio-button:checked::before{
     height: 2em;
