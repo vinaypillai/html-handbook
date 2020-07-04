@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+			background-color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			width: 100%;
+		}
+		.input--slider{
+			all: unset;
+			-webkit-appearance: none;
+			width: 20em;
+			background: var(--slider-color);
+			height: 0.5em;
+			border-radius: 1em;
+			box-shadow: 0 0 10px rgba(0,0,0,0.4);
+		}
+		.input--slider::-webkit-slider-thumb{
+			-webkit-appearance: none;
+			background: #fff;
+			box-shadow: 0 0 10px rgba(0,0,0,0.4);
+			height: 2em;
+			width: 1em;
+			border-radius: 0.5em;
+			cursor: pointer;
+			transition: width, height, border-radius, 0.15s ease-in-out;
+		}
+		.input--slider:focus{
+			outline: none;
+		}
+		.input--slider::-ms-track{
+			width: 20em;
+			background: transparent;
+			border-color: transparent;
+			color: transparent;
+		}
+		.input--slider::-webkit-slider-thumb:active{
+			width: 1.2em;
+			height: 2.2em;
+			border-radius: 0.6em;
+		}
+	</style>
+</head>
+<body>
+	<input type="range" class="input--slider" style="--min-color: #4F78EF; --max-color: #FC132E; --slider-color:transparent;">
+
+	<script type="text/javascript">
+		function hexToRgb(hex) {
+		    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+		    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+		      return r + r + g + g + b + b;
+		    });
+		    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+		    return result ?
+		      [parseInt(result[1], 16), parseInt(result[2], 16),
+		        parseInt(result[3], 16)] :
+		      null;
+		}
+
+		function thumbColorChange(slider) {
+			const min = slider.min || 0;
+				const max = slider.max || 100;
+				const rgbMinColor = hexToRgb(slider.style.getPropertyValue("--min-color").trim());
+				const rgbMaxColor = hexToRgb(slider.style.getPropertyValue("--max-color").trim());
+				const percentProgress = (slider.value - min) / (max - min);
+			    const blend = (new Array(3)).fill().map((val, i) => {
+			      return rgbMaxColor[i] * percentProgress + rgbMinColor[i] * (1 - percentProgress);
+			    }).map(val => Math.round(val));
+			    const blendRgb = `rgb(${blend[0]},${blend[1]}, ${blend[2]})`;
+
+			    slider.style.setProperty("--slider-color", blendRgb);
+		}
+		[...document.getElementsByClassName("input--slider")].forEach(slider => {
+			thumbColorChange(slider);
+			slider.addEventListener("input", () => {
+				thumbColorChange(slider);
+			});
+
+		});
+	</script>
+</body>
+</html>
