@@ -1,77 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
 	<title></title>
-
-<style type="text/css">
-body {
-  background-color: #21695D;
-}
-
-.button--swipe-down-wrapper {
-  position: absolute;
-  top: calc(50% - 37.5px);
-  left: calc(50% - 100px);
-  height: 75px;
-  width: 200px;
-}
-
-.button--swipe-down-profile {
-  all: unset;
-  --font-color: #fff;
-  background-color: #21695D;
-  color: var(--font-color);
-  border-style: solid;
-  border-width: 2px;
-  border-color: #fff;
-  width: 200px;
-  height: 75px;
-  position: relative;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-size: 28px;
-  letter-spacing: 4px;
-  z-index: 2;
-  transition: color 0.2s ease-in-out;
-  -webkit-text-fill-color: var(--font-color);
-}
-
-.button--swipe-down-profile:hover {
-  cursor: pointer;
-  color: #21695D;
-  --font-color: #21695D;
-  transition: background-color 0s ease-in-out 0.2s;
-  background-color: #fff;
-}
-
-.button--swipe-down-profile::before {
-  position: absolute;
-  top: 0px;
-  left: 0;
-  right: 0;
-  height: 0px;
-  content: "";
-  background-color: #fff;
-  z-index: -1;
-  transition: height 0.2s ease-in-out;
-}
-
-.button--swipe-down-profile:hover::before {
-  height: 75px;
-}
-</style>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap');
+		body{
+			background-color: #24425F;
+			display: flex;
+			height: 100vh;
+			justify-content: center;
+			align-items: center;
+			padding: 0;
+			margin: 0;
+		}
+		.button--swipe-down{
+			all: unset;
+			padding: 15px 60px;
+			border: 2px solid #fff;
+			border-radius: 500px;
+			background-color: transparent;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: 'Lato', sans-serif;
+			font-weight: 300;
+			font-size: 25px;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+		}
+		.button--swipe-down::before{
+			position: absolute;
+			content: "";
+			right: 0;
+			left: 0;
+			top: 0;
+			display: block;
+			bottom: 100%;
+			transition: bottom 0.15s ease-in-out;
+			background-color: #fff;
+			z-index: -1;
+		}
+		.button--swipe-down:hover::before{
+			bottom: 0;
+		}
+		.button--swipe-down span{
+			color: #fff;
+			z-index: 2;
+			mix-blend-mode: difference;
+		}
+	</style>
 </head>
 <body>
-	<div class="button--swipe-down-wrapper">
-		<button class="button--swipe-down-profile">
-			Button
-		</button>
-	</div>
+	<button class="button--swipe-down">
+		<span>Button</span>
+	</button>
 </body>
 </html>
